@@ -69,7 +69,7 @@
 
   .skip{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--paper);padding:.6rem 1rem;z-index:60;font-family:var(--caps);font-size:.75rem;letter-spacing:.12em}
   .skip:focus{left:.5rem;top:.5rem}
-  :focus-visible{outline:2px solid var(--flash);outline-offset:3px}
+  :focus-visible{outline:1.5px solid #201818;outline-offset:3px}
   .announce{
     min-height:var(--announceh);display:flex;align-items:center;justify-content:center;text-align:center;
     padding:.55rem var(--pad);background:var(--mahogany);color:#f4f3ed;
@@ -95,7 +95,7 @@
   }
   .menu-toggle__lines{position:relative;width:1.55rem;height:.72rem;display:block}
   .menu-toggle__lines::before,.menu-toggle__lines::after{
-    content:"";position:absolute;left:0;width:100%;height:1px;background:currentColor;
+    content:"";position:absolute;left:0;width:100%;height:1.5px;background:#201818;
     transition:transform .35s ease,top .35s ease,opacity .25s ease;
   }
   .menu-toggle__lines::before{top:0}
@@ -104,7 +104,7 @@
   .nav.is-open .menu-toggle__lines::after{top:.31rem;transform:rotate(-35deg)}
   .nav-menu{
     position:fixed;top:calc(var(--announceh) + var(--navh));left:0;right:0;z-index:35;
-    background:rgba(32,24,24,.96);border-bottom:1px solid var(--hairline);
+    background:rgba(32,24,24,.96);
     padding:clamp(1.4rem,3vw,2.4rem) var(--pad) clamp(2rem,4vw,3rem);
     display:grid;grid-template-columns:minmax(0,1fr) minmax(12rem,22rem);gap:clamp(2rem,8vw,7rem);
     transform:translateY(-1rem);opacity:0;pointer-events:none;visibility:hidden;
@@ -114,7 +114,7 @@
   .nav-menu__about{max-width:31rem;margin:0;color:var(--ink-soft);font-size:clamp(1.05rem,1.2vw,1.24rem);line-height:1.58}
   .nav-menu__links{display:grid;gap:.3rem;align-content:start}
   .nav-menu__links a{
-    display:flex;justify-content:space-between;gap:1rem;padding:.72rem 0;border-bottom:1px solid var(--hairline);
+    display:flex;justify-content:space-between;gap:1rem;padding:.72rem 0;
     text-decoration:none;font-family:var(--caps);text-transform:uppercase;letter-spacing:.17em;font-size:.78rem;
   }
   .nav-menu__links a:hover{color:var(--flash)}
@@ -171,7 +171,7 @@
   /* ---- index ---- */
   .index-sec{padding-block:clamp(2.5rem,6vw,4rem)}
   .index{list-style:none;margin:0;padding:0;max-width:34rem}
-  .index li{border-bottom:1px solid var(--hairline)}
+  .index li{}
   .index a{display:flex;gap:1.1rem;align-items:baseline;text-decoration:none;padding:.85rem 0}
   .index a:hover,.index a:hover .index__num{color:var(--flash)}
   .index__num{font-family:var(--caps);font-size:.74rem;letter-spacing:.14em;color:var(--ink-faint);min-width:2.6rem}
@@ -192,12 +192,12 @@
   body.view-about #contact{display:block;background:var(--mahogany);color:#f4f3ed}
   body.view-about .foot{background:var(--mahogany);color:#f4f3ed}
   body.view-about .foot__meta{color:#f4f3ed}
-  body.view-about .nav{background:rgba(244,243,237,.88);border-bottom:1px solid rgba(32,24,24,.12)}
+  body.view-about .nav{background:rgba(244,243,237,.88)}
   body.view-about .nav__logo{filter:brightness(0) saturate(100%)}
   body.view-about .menu-toggle{color:#201818}
-  body.view-about .nav-menu{background:rgba(244,243,237,.96);border-bottom-color:rgba(32,24,24,.14)}
+  body.view-about .nav-menu{background:rgba(244,243,237,.96)}
   body.view-about .nav-menu__about{color:rgba(32,24,24,.72)}
-  body.view-about .nav-menu__links a{border-bottom-color:rgba(32,24,24,.14)}
+
 
   /* ---- about page ---- */
   .about-page{
@@ -218,7 +218,7 @@
   .about-top-image{
     width:min(100%,40rem);
     margin:0 auto clamp(2rem,4vw,3rem);
-    border:1.5px solid var(--about-ink);
+    border:1.5px solid #201818;
     overflow:hidden;
   }
   .about-top-image img{
@@ -253,7 +253,7 @@
     text-align:center;
     max-width:16ch;
   }
-  .about-kicker::after{content:"";display:block;width:6.6rem;height:1px;background:rgba(122,118,79,.42);margin:clamp(1.4rem,2.6vw,2.1rem) auto 0}
+  .about-kicker::after{display:none}
   .about-copy p{
     margin:0;
     font-size:clamp(.98rem,.46vw + .9rem,1.08rem);
@@ -284,7 +284,7 @@
     justify-content:center;
     min-height:2.8rem;
     padding:.8rem 1rem;
-    border:1.5px solid var(--about-ink);
+    border:1.5px solid #201818;
     color:var(--about-ink);
     background:var(--about-paper);
     text-decoration:none;
@@ -337,7 +337,7 @@
   /* ---- figures ---- */
   figure{margin:0}
   .figure{padding-block:clamp(2rem,5vw,4rem)}
-  .frame{position:relative;width:100%;background:var(--paper-2);border:1.5px solid var(--vintage);overflow:hidden;display:grid;place-items:center}
+  .frame{position:relative;width:100%;background:var(--paper-2);border:1.5px solid #201818;overflow:hidden;display:grid;place-items:center}
   .frame img{width:100%;height:100%;object-fit:cover;filter:saturate(.94) contrast(1.02);opacity:.9;transition:opacity .35s ease}
   .frame:hover img,a:hover .frame img{opacity:1}
   .frame--portrait{aspect-ratio:4/5}
@@ -427,7 +427,7 @@
   .pathways__copy h2{font-family:var(--display);font-weight:400;font-style:normal;text-transform:uppercase;font-size:clamp(1.5rem,3.3vw,2.7rem);line-height:1.08;margin:0 0 1.15rem;max-width:8ch}
   .pathways__copy h2 em{font-style:italic}
   .pathways__copy p{margin:0;color:var(--ink-soft);font-size:clamp(1.05rem,1vw,1.2rem);line-height:1.7;max-width:30ch}
-  #contact{background:var(--mahogany);color:#f4f3ed;text-align:center;border-top:1.5px solid #201818}
+  #contact{background:var(--mahogany);color:#f4f3ed;text-align:center}
   .contact__inner{min-height:clamp(19rem,42vh,28rem);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(.65rem,1.5vw,1.05rem);max-width:36rem;margin-inline:auto}
   .contact__seal{width:clamp(5.5rem,9vw,7.5rem);height:auto;opacity:.96}
   .contact__title{font-family:var(--display);font-size:clamp(.75rem,.9vw,.94rem);font-weight:400;text-transform:uppercase;line-height:1.1;margin:.45rem 0 -.15rem}
@@ -712,9 +712,15 @@
     if(openingLogo) openingLogo.src = '/assets/logo-cream.png';
     if(navLogo && openingLogo) navLogo.src = openingLogo.src;
 
+    var autoEnterTimer;
     function startOpening(){
       if(root.classList.contains('is-ready')) return;
       root.classList.add('is-ready');
+      if(opening && !root.classList.contains('site-entered')){
+        autoEnterTimer = setTimeout(function(){
+          if(!root.classList.contains('site-entered')) enterSite('intro');
+        }, 5000);
+      }
     }
     function getOpeningImageUrl(){
       if(!opening) return '';
@@ -741,6 +747,7 @@
     }
 
     function enterSite(target){
+      if(autoEnterTimer) clearTimeout(autoEnterTimer);
       root.classList.add('site-entered');
       try{ sessionStorage.setItem('craftBeingEntered', '1'); }catch(e){}
       if(target){
