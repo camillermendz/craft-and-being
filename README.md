@@ -5,11 +5,12 @@ This folder is the clean static website package for GitHub and Vercel.
 ## Files
 
 - `index.html` is the homepage.
-- `services.html` is the services page.
-- `gatherings.html` is the gatherings page.
+- `about/index.html` publishes at `/about/`.
+- `services/index.html` publishes at `/services/`.
+- `gatherings/index.html` publishes at `/gatherings/`.
 - `assets/` contains local images, logos, and supporting files.
 
-The about page currently lives inside the homepage at `index.html#about`.
+The old `.html` URLs are redirected to the clean versions through `vercel.json`.
 
 ## Publish With Vercel
 
