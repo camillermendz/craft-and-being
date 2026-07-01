@@ -3,12 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Craft &amp; Being</title>
-<meta name="description" content="Craft & Being — a studio practice dedicated to creativity, leisure, and meaningful work. Founded by Camille Mendoza in Vancouver, B.C.">
+<title>Craft &amp; Being Studio | Creative Marketing</title>
+<meta name="description" content="Craft & Being helps creatives and entrepreneurs build meaningful brands with intentional design, blending work, family, and faith for sustainable growth.">
 <meta name="theme-color" content="#201818">
-<meta property="og:title" content="Craft & Being">
-<meta property="og:description" content="A studio practice dedicated to creativity, leisure, and meaningful work.">
+<meta property="og:title" content="Craft &amp; Being Studio | Creative Marketing">
+<meta property="og:description" content="Craft & Being helps creatives and entrepreneurs build meaningful brands with intentional design, blending work, family, and faith for sustainable growth.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://www.craftandbeing.com/assets/site-icon.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Craft &amp; Being Studio | Creative Marketing">
+<meta name="twitter:description" content="Craft & Being helps creatives and entrepreneurs build meaningful brands with intentional design, blending work, family, and faith for sustainable growth.">
+<meta name="twitter:image" content="https://www.craftandbeing.com/assets/site-icon.png">
+<link rel="icon" type="image/png" href="/assets/site-icon.png">
+<link rel="apple-touch-icon" href="/assets/site-icon.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,8 +63,7 @@
   img{max-width:100%;display:block}
   h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase}
   h2,h3{letter-spacing:.2px}
-  em{transition:color .2s ease}
-  em:hover{color:var(--flash)}
+  em{transition:none}
 
   .caps{font-family:var(--caps);text-transform:uppercase;letter-spacing:.17em;font-weight:400;font-size:.7rem;line-height:1.5}
 
@@ -97,7 +103,7 @@
   .nav.is-open .menu-toggle__lines::before{top:.31rem;transform:rotate(35deg)}
   .nav.is-open .menu-toggle__lines::after{top:.31rem;transform:rotate(-35deg)}
   .nav-menu{
-    position:fixed;top:var(--navh);left:0;right:0;z-index:35;
+    position:fixed;top:calc(var(--announceh) + var(--navh));left:0;right:0;z-index:35;
     background:rgba(32,24,24,.96);border-bottom:1px solid var(--hairline);
     padding:clamp(1.4rem,3vw,2.4rem) var(--pad) clamp(2rem,4vw,3rem);
     display:grid;grid-template-columns:minmax(0,1fr) minmax(12rem,22rem);gap:clamp(2rem,8vw,7rem);
@@ -132,8 +138,9 @@
     background-image:var(--opening-image);
     background-size:cover;background-position:center;
     filter:saturate(.9) contrast(1.02);
-    opacity:.78;
+    opacity:.78;transition:opacity .7s ease;
   }
+  html.js:not(.is-ready) .opening::before{opacity:0}
   .opening::after{
     content:"";position:absolute;inset:0;z-index:-1;
     background:rgba(32,24,24,.34);
@@ -324,7 +331,7 @@
     color:var(--about-ink);
   }
   .delights__item{transition:font-style .2s ease,color .2s ease}
-  .delights__item:hover{font-style:italic;color:var(--flash)}
+  .delights__item:hover{font-style:italic}
   .delights__sep{display:inline-block;margin:0 .25em;color:var(--about-ink)}
 
   /* ---- figures ---- */
@@ -483,6 +490,7 @@
     .pathways__copy{padding-left:0;order:-1}
     .pathways__copy h2{max-width:12ch}
     .pathway__media{aspect-ratio:3/2}
+    .pathway--journal .pathway__media img{object-position:center top}
     .post-grid{grid-template-columns:1fr}
     .post-card__media,.post-card--feature .post-card__media{aspect-ratio:3/2}
     figcaption{flex-direction:column;gap:.2rem}
@@ -512,7 +520,7 @@
   <nav class="nav-menu__links" aria-label="Site">
     <a href="/about/"><span>About</span></a>
     <a href="/services/"><span>Services</span></a>
-    <a href="/#newsletter"><span>Newsletter</span></a>
+    <a href="#newsletter"><span>Newsletter</span></a>
     <a href="/gatherings/"><span>Gatherings</span></a>
     <a href="#contact"><span>Contact</span></a>
   </nav>
@@ -592,7 +600,7 @@
         </div>
       </div>
     </a>
-    <a class="pathway" href="https://camillemendoza.substack.com">
+    <a class="pathway pathway--journal" href="https://camillemendoza.substack.com">
       <div class="frame pathway__media">
         <img src="https://www.dropbox.com/scl/fi/umczvun6tn8fddvjpk3r6/Tezza-6170.JPG?rlkey=p5diw50avojgbid2ag7i1yf2o&st=cdl96svb&raw=1" alt="Journal and writing inspiration">
         <div class="pathway__text">
@@ -695,11 +703,6 @@
 <script>
   (function(){
     var root = document.documentElement;
-    // Start the opening sequence without waiting for every image on the page.
-    requestAnimationFrame(function(){
-      setTimeout(function(){ root.classList.add('is-ready'); }, 90);
-    });
-
     var nav = document.querySelector('[data-nav]');
     var menu = document.querySelector('[data-menu]');
     var toggle = document.querySelector('.menu-toggle');
@@ -708,6 +711,26 @@
     var openingLogo = document.querySelector('.opening__logo');
     if(openingLogo) openingLogo.src = '/assets/logo-cream.png';
     if(navLogo && openingLogo) navLogo.src = openingLogo.src;
+
+    function startOpening(){
+      if(root.classList.contains('is-ready')) return;
+      root.classList.add('is-ready');
+    }
+    function getOpeningImageUrl(){
+      if(!opening) return '';
+      var value = getComputedStyle(opening).getPropertyValue('--opening-image').trim();
+      return value.replace(/^url\((['"]?)(.*)\1\)$/,'$2');
+    }
+    var openingImageUrl = getOpeningImageUrl();
+    if(openingImageUrl){
+      var heroImage = new Image();
+      heroImage.onload = startOpening;
+      heroImage.onerror = startOpening;
+      heroImage.src = openingImageUrl;
+      setTimeout(startOpening, 3500);
+    } else {
+      requestAnimationFrame(function(){ setTimeout(startOpening, 90); });
+    }
 
     function showCurrentView(){
       if(window.location.hash === '#about' || window.location.pathname.replace(/\/$/, '') === '/about'){
