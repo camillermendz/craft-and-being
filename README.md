@@ -1,4 +1,4 @@
-# Craft & Being Website
+# Craft & Being
 
 This folder is the clean static website package for GitHub and Vercel.
 
@@ -13,11 +13,11 @@ The about page currently lives inside the homepage at `index.html#about`.
 
 ## Publish With Vercel
 
-1. Upload this `publish` folder to a GitHub repository.
+1. Upload this repository to GitHub.
 2. In Vercel, import the GitHub repository.
 3. Choose `Other` as the framework preset.
 4. Leave the build command blank.
-5. Leave the output directory blank if this folder is the repository root.
+5. Leave the output directory blank.
 6. Deploy.
 
 ## Domain
