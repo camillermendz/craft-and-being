@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f4f3ed">
+<title>Services | Craft &amp; Being</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Della+Respira&family=Kumbh+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4f3ed;
+    --paper-2:#ebe6dc;
+    --ink:#201818;
+    --ink-soft:rgba(32,24,24,.70);
+    --ink-faint:rgba(32,24,24,.48);
+    --rust:#722106;
+    --flash:#c86f32;
+    --vintage:#d2c3a2;
+    --pad:clamp(1.1rem,3vw,3.2rem);
+    --serif:"Alegreya",Georgia,serif;
+    --display:"Della Respira",Georgia,serif;
+    --caps:"Kumbh Sans",Arial,sans-serif;
+    --navh:74px;
+    --announceh:38px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--serif);font-size:clamp(1.02rem,.55vw + .92rem,1.18rem);
+    line-height:1.72;font-weight:400;text-rendering:optimizeLegibility;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  h1,h2,h3,p{margin-top:0}
+  h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase}
+  h2,h3{letter-spacing:.2px}
+  .caps{font-family:var(--caps);text-transform:uppercase;letter-spacing:.17em;font-weight:400;font-size:.7rem;line-height:1.5}
+  .announce{
+    min-height:var(--announceh);display:flex;align-items:center;justify-content:center;text-align:center;
+    padding:.55rem var(--pad);background:var(--rust);color:#f4f3ed;
+    font-family:var(--caps);text-transform:uppercase;letter-spacing:.17em;font-size:.68rem;line-height:1.35;
+    position:sticky;top:0;z-index:70;
+  }
+  .announce a{text-decoration:none}
+  .announce a:hover{font-style:italic}
+  .nav{
+    position:sticky;top:var(--announceh);z-index:50;height:var(--navh);
+    display:flex;align-items:center;justify-content:center;
+    padding:0 var(--pad);background:rgba(244,243,237,.88);backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(32,24,24,.12);
+  }
+  .nav__mark{display:inline-flex;align-items:center;justify-content:center;width:min(148px,32vw);height:var(--navh);overflow:hidden}
+  .nav__mark img{width:100%;height:auto;filter:brightness(0) saturate(100%)}
+  .menu-toggle{position:absolute;right:var(--pad);appearance:none;border:0;background:transparent;color:var(--ink);cursor:pointer;width:2.65rem;height:2.65rem;padding:0;display:grid;place-items:center}
+  .menu-toggle__lines{position:relative;width:1.55rem;height:.72rem;display:block}
+  .menu-toggle__lines::before,.menu-toggle__lines::after{content:"";position:absolute;left:0;width:100%;height:1px;background:currentColor;transition:transform .35s ease,top .35s ease}
+  .menu-toggle__lines::before{top:0}
+  .menu-toggle__lines::after{top:.62rem}
+  .nav.is-open .menu-toggle__lines::before{top:.31rem;transform:rotate(35deg)}
+  .nav.is-open .menu-toggle__lines::after{top:.31rem;transform:rotate(-35deg)}
+  .nav-menu{
+    position:fixed;top:calc(var(--announceh) + var(--navh));left:0;right:0;z-index:45;
+    background:rgba(244,243,237,.96);border-bottom:1px solid rgba(32,24,24,.14);
+    padding:clamp(1.4rem,3vw,2.4rem) var(--pad) clamp(2rem,4vw,3rem);
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(12rem,22rem);gap:clamp(2rem,8vw,7rem);
+    transform:translateY(-1rem);opacity:0;pointer-events:none;visibility:hidden;
+    transition:opacity .35s ease,transform .35s ease,visibility 0s linear .35s;
+  }
+  .nav-menu.is-open{transform:none;opacity:1;pointer-events:auto;visibility:visible;transition-delay:0s}
+  .nav-menu__about{max-width:31rem;margin:0;color:var(--ink-soft);font-size:clamp(1.05rem,1.2vw,1.24rem);line-height:1.58}
+  .nav-menu__links{display:grid;gap:.3rem;align-content:start}
+  .nav-menu__links a{display:flex;justify-content:space-between;gap:1rem;padding:.72rem 0;border-bottom:1px solid rgba(32,24,24,.14);text-decoration:none;font-family:var(--caps);text-transform:uppercase;letter-spacing:.17em;font-size:.78rem}
+  .nav-menu__links a:hover{color:var(--rust)}
+  .wrap{width:min(100% - var(--pad) * 2,1180px);margin-inline:auto}
+  .eyebrow{font-family:var(--caps);text-transform:uppercase;letter-spacing:.17em;font-size:.72rem;color:var(--ink-soft);margin:0 0 1.15rem}
+  .hero{
+    min-height:calc(100svh - var(--navh));display:grid;align-items:end;
+    padding:clamp(4.5rem,9vw,8rem) var(--pad);position:relative;isolation:isolate;
+    background-color:#201818;background-image:url('assets/opening-image.jpg');background-size:cover;background-position:center;
+    color:#f4f3ed;
+  }
+  .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(32,24,24,.82),rgba(32,24,24,.48))}
+  .hero__inner{width:min(100%,1180px);margin-inline:auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(16rem,.48fr);gap:clamp(2rem,6vw,6rem);align-items:end}
+  .hero h1{
+    font-size:clamp(3rem,8.25vw,7.125rem);line-height:.96;letter-spacing:0;margin-bottom:clamp(1.2rem,3vw,2rem);
+    max-width:7.4ch;
+  }
+  .hero__lede{font-size:clamp(1.24rem,1.9vw,1.8rem);line-height:1.45;max-width:39rem;color:#f4f3ed}
+  .hero__side{align-self:end;color:rgba(244,243,237,.74)}
+  .hero .eyebrow,.cta-panel .eyebrow{color:rgba(244,243,237,.74)}
+  .hero__side p{margin-bottom:0}
+  .section{padding-block:clamp(3.4rem,7vw,6.4rem)}
+  .intro{
+    display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1fr);
+    gap:clamp(2rem,7vw,7rem);align-items:start;
+  }
+  .pull{font-size:clamp(1.8rem,4vw,3.55rem);line-height:1.05;font-weight:500;color:var(--ink)}
+  .pull em{font-style:italic}
+  .copy p,.lede{color:var(--ink-soft)}
+  .image-band{
+    min-height:clamp(21rem,48vw,40rem);display:grid;place-items:center;position:relative;isolation:isolate;
+    background-color:#201818;background-size:cover;background-position:center;margin-block:clamp(1rem,4vw,3rem);
+    padding:clamp(2rem,6vw,5rem) var(--pad);text-align:center;
+  }
+  .image-band::before{content:"";position:absolute;inset:0;background:rgba(32,24,24,.46);z-index:-1}
+  .image-band--retainers{background-image:url('https://www.dropbox.com/scl/fi/m7os15p11oj0vg2pvaent/Tezza-3105.jpg?rlkey=n5hjt5gzddtojys1j7ukojjg7&st=knl8qzod&raw=1');background-position:center bottom}
+  .image-band--setup{background-image:url('assets/tezza-0464.jpg')}
+  .image-band__content{max-width:46rem;margin-inline:auto}
+  .image-band__content h2,.image-band__label{color:#f4f3ed;font-size:clamp(1.5rem,3.75vw,3.6rem);line-height:1.02;text-align:center;margin:0 auto 1rem;max-width:11ch}
+  .image-band--setup .image-band__content h2{max-width:16ch}
+  .image-band__content p{color:rgba(244,243,237,.86);margin:0 auto;max-width:42rem}
+  .section-head{display:grid;grid-template-columns:minmax(0,.64fr) minmax(0,1fr);gap:clamp(2rem,6vw,6rem);align-items:end;margin-bottom:clamp(2rem,5vw,4rem)}
+  .section-head h2,.offering__content h2,.template-panel h2,.cta-panel h2{
+    font-family:var(--display);font-weight:400;font-style:normal;text-transform:uppercase;line-height:1.05;margin-bottom:1rem;
+  }
+  .section-head h2{font-size:clamp(1.62rem,3.75vw,3.6rem);max-width:10ch}
+  .offering{
+    display:grid;grid-template-columns:minmax(17rem,.72fr) minmax(0,1fr);
+    gap:clamp(1.8rem,6vw,6rem);align-items:center;padding-block:clamp(3rem,7vw,6rem);
+  }
+  .offering:nth-of-type(even){grid-template-columns:minmax(0,1fr) minmax(17rem,.72fr)}
+  .offering:nth-of-type(even) .offering__media{order:2}
+  .frame{position:relative;width:100%;background:var(--paper-2);border:1.5px solid var(--ink);overflow:hidden}
+  .frame img{width:100%;height:100%;object-fit:cover;opacity:.9;transition:opacity .35s ease;filter:saturate(.94) contrast(1.02)}
+  .frame:hover img,a:hover .frame img{opacity:1}
+  .placeholder{
+    min-height:100%;display:grid;place-items:center;padding:1rem;text-align:center;
+    background:linear-gradient(135deg,rgba(32,24,24,.08),rgba(32,24,24,.015));
+    color:var(--ink-faint);font-family:var(--caps);text-transform:uppercase;letter-spacing:.17em;font-size:.68rem;
+  }
+  .offering__media{aspect-ratio:4/5}
+  .offering__content{max-width:44rem}
+  .offering__content h2{font-size:clamp(1.5rem,3.45vw,3.12rem);max-width:12ch}
+  .offering__content p{color:var(--ink-soft)}
+  .includes{list-style:none;margin:1.5rem 0 0;padding:0;display:grid;gap:.75rem}
+  .includes li{color:var(--ink);font-family:var(--caps);font-size:.78rem;letter-spacing:.06em;line-height:1.55;text-transform:uppercase}
+  .price{
+    display:block;width:auto;max-width:100%;margin-top:1rem;padding:0;background:transparent;color:var(--ink);border:0;
+    font-family:var(--caps);text-transform:uppercase;letter-spacing:.15em;font-size:.68rem;line-height:1.35;text-align:left;
+  }
+  .note{font-size:.98rem;color:var(--ink-faint)!important;margin-top:1rem}
+  .ribbon{
+    background:transparent;color:var(--ink);padding:clamp(3rem,7vw,6rem) var(--pad);
+    text-align:center;margin-block:clamp(1.5rem,4vw,3rem);
+  }
+  .ribbon p{font-size:clamp(1.5rem,3.75vw,3.6rem);line-height:1.04;max-width:16ch;margin:0 auto}
+  .small-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem}
+  .small-card{border:1.5px solid rgba(32,24,24,.22);padding:clamp(1.25rem,2vw,1.8rem);background:rgba(255,255,255,.5);color:#201818}
+  .small-card h3{font-family:var(--display);font-size:clamp(1.1rem,1.8vw,1.7rem);font-weight:400;text-transform:uppercase;line-height:1.08;margin-bottom:1rem}
+  .small-card p{color:rgba(32,24,24,.70)}
+  .small-card .includes li{color:#201818}
+  .small-card .price{background:transparent;color:#201818;border:0}
+  .template-panel{
+    display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1fr);
+    gap:clamp(1.8rem,5vw,5rem);align-items:center;padding-block:clamp(3rem,7vw,6rem);
+  }
+  .template-panel__media{aspect-ratio:16/10}
+  .quote-strip{padding-block:clamp(3rem,7vw,5.5rem)}
+  .quote-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);gap:clamp(1.8rem,5vw,5rem);align-items:start}
+  .quote-placeholder{border:1.5px solid var(--ink);padding:clamp(1.4rem,3vw,2.2rem);background:rgba(32,24,24,.025)}
+  .quote-placeholder blockquote{font-family:var(--serif);font-size:clamp(1.55rem,3vw,2.75rem);line-height:1.08;margin:0 0 1rem}
+  .quote-placeholder figcaption{font-family:var(--caps);text-transform:uppercase;letter-spacing:.17em;font-size:.68rem;color:var(--ink-soft)}
+  .why{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);gap:clamp(1.8rem,5vw,5rem)}
+  .why-list{display:grid;gap:1.4rem}
+  .why-item h3{font-family:var(--display);font-size:clamp(.9rem,1.5vw,1.35rem);letter-spacing:.2px;text-transform:uppercase;font-weight:400}
+  .why-item p{color:var(--ink-soft);font-size:1rem;line-height:1.58}
+  .cta-panel{
+    min-height:34rem;display:grid;place-items:center;text-align:center;position:relative;isolation:isolate;
+    background-color:#201818;background-image:url('https://www.dropbox.com/scl/fi/sucorublj0beldpbgvzd9/Tezza-4091.JPG?rlkey=b6qny0dqxvtbaoqumwzlbrxcj&st=ry540ir2&raw=1');background-size:cover;background-position:center;color:#f4f3ed;
+    padding:clamp(3rem,7vw,6rem) var(--pad);margin-top:clamp(2rem,5vw,4rem);
+  }
+  .cta-panel::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(32,24,24,.62)}
+  .cta-panel h2{font-size:clamp(1.5rem,3.45vw,3.12rem);margin:0 auto 1rem;max-width:13ch}
+  .cta-panel p{max-width:37rem;margin-inline:auto;color:rgba(244,243,237,.82)}
+  .button{
+    display:inline-flex;align-items:center;justify-content:center;margin-top:1.4rem;text-decoration:none;color:#201818;
+    background:#f4f3ed;font-family:var(--caps);text-transform:uppercase;letter-spacing:.15em;font-size:.74rem;
+    border:1.5px solid #201818;padding:.82rem 1.1rem;border-radius:2px;line-height:1;
+  }
+  .button:hover{color:#f4f3ed;background:#201818;border-color:#201818}
+  #contact{background:#722106;color:#f4f3ed;text-align:center;border-top:1.5px solid #201818}
+  .contact__inner{min-height:clamp(19rem,42vh,28rem);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(.65rem,1.5vw,1.05rem);max-width:36rem;margin-inline:auto}
+  .contact__seal{width:clamp(5.5rem,9vw,7.5rem);height:auto;opacity:.96}
+  .contact__tagline{font-family:var(--display);font-size:clamp(.98rem,1.88vw,1.84rem);text-transform:uppercase;line-height:1.08;margin:0;color:#f4f3ed}
+  .contact__tagline em{font-style:italic}
+  .contact__links{display:flex;flex-direction:column;align-items:center;gap:.38rem;margin-top:0;font-size:clamp(.92rem,1vw,1.02rem);line-height:1.35}
+  .contact__links a{color:#f4f3ed;text-decoration:none;transition:font-style .2s ease,color .2s ease}
+  .contact__links a:hover{color:#f4f3ed;font-style:italic}
+  .foot{background:#722106;color:#f4f3ed;text-align:center;padding:0 var(--pad) clamp(2.3rem,4vw,3rem)}
+  .foot__legal{padding-top:.3rem}
+  .foot__meta{max-width:42rem;margin:0 auto;color:#f4f3ed;font-family:var(--caps);font-size:.72rem;letter-spacing:.16em;line-height:1.65;text-transform:uppercase}
+  .foot__meta + .foot__meta{margin-top:.7rem}
+  [data-footer-reveal]{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s cubic-bezier(.22,.61,.36,1)}
+  [data-footer-reveal].is-in{opacity:1;transform:none}
+  .page-loader{position:fixed;inset:0;z-index:120;display:grid;place-items:center;background:#201818;opacity:1;visibility:visible;transition:opacity .7s ease,visibility 0s linear .7s}
+  .page-loader.is-hidden{opacity:0;visibility:hidden;pointer-events:none}
+  .page-loader.is-active{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .35s ease}
+  .page-loader__mark{width:clamp(5.25rem,12vw,9rem);height:auto;opacity:0;filter:drop-shadow(0 18px 42px rgba(0,0,0,.18));animation:loaderBloom 1.6s cubic-bezier(.22,.61,.36,1) both}
+  @keyframes loaderBloom{0%{opacity:0;transform:scale(.92) rotate(-2deg)}45%{opacity:1;transform:scale(1.015) rotate(0deg)}100%{opacity:.92;transform:scale(1)}}
+  .services-hero{
+    min-height:calc(92svh - var(--navh));
+    display:grid;place-items:center;text-align:center;position:relative;isolation:isolate;
+    padding:clamp(5rem,10vw,8rem) var(--pad);
+    background:#201818 url('https://www.dropbox.com/scl/fi/xhjlr1sogoihr1if1vazi/Tezza-1439.JPG?rlkey=nq9h7xe1atl3lbeuook84f01z&st=wz6obqq9&raw=1') center/cover;color:#f4f3ed;
+  }
+  .services-hero::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(32,24,24,.62)}
+  .services-hero__inner{max-width:50rem;margin-inline:auto}
+  .services-hero h1{font-size:clamp(2.25rem,6.18vw,5.34rem);line-height:1.02;margin:0 auto 1.35rem;max-width:12ch;text-align:center;text-wrap:balance}
+  .services-hero p{color:rgba(244,243,237,.84);font-size:clamp(1.15rem,1.5vw,1.52rem);line-height:1.48;margin-inline:auto;max-width:42rem}
+  .services-hero .eyebrow{color:rgba(244,243,237,.72);font-size:.7rem;letter-spacing:.22em;margin-bottom:1rem}
+  .rotating-word{display:grid;position:relative;min-width:min(100%,10.6ch);vertical-align:baseline;text-align:center;justify-content:center;margin-inline:auto}
+  .rotating-word__item{grid-area:1/1;opacity:0;transform:translateY(.12em);filter:blur(2px);transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.22,.61,.36,1),filter 1.1s ease}
+  .rotating-word__item.is-active{opacity:1;transform:none;filter:blur(0)}
+  .centered-copy{max-width:47rem;margin-inline:auto;text-align:center}
+  .centered-copy h2{font-size:clamp(1.55rem,3.1vw,3rem);line-height:1.12;margin-bottom:1.2rem;text-wrap:balance}
+  .centered-copy p{color:var(--ink-soft)}
+  .editorial-split{
+    display:grid;grid-template-columns:minmax(17rem,.82fr) minmax(0,1fr);
+    gap:clamp(2rem,7vw,7rem);align-items:center;
+  }
+  .editorial-split__media{aspect-ratio:4/5}
+  .editorial-split__copy h2{font-size:clamp(1.75rem,3.45vw,3.35rem);line-height:1.12;max-width:13ch;text-wrap:balance}
+  .editorial-split__copy p{color:var(--ink-soft)}
+  .service-index{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:clamp(2rem,4vw,3rem)}
+  .service-card{
+    min-height:19rem;display:flex;flex-direction:column;justify-content:space-between;
+    padding:clamp(1.15rem,2vw,1.6rem);border:1.5px solid var(--ink);
+    background:rgba(255,255,255,.32);text-decoration:none;
+  }
+  .service-card:hover{background:var(--vintage);color:#201818}
+  .service-card h3{font-size:clamp(1.1rem,1.7vw,1.55rem);line-height:1.08;margin:0 0 1rem}
+  .service-card p{font-size:1rem;line-height:1.58;color:inherit;margin:0}
+  .service-card .caps{color:inherit}
+  .client-logos{
+    padding-block:clamp(.6rem,2vw,1.4rem) clamp(3.2rem,6vw,5.2rem);
+    text-align:center;
+  }
+  .client-logos .eyebrow{margin-bottom:clamp(1.6rem,3vw,2.6rem)}
+  .client-logos__grid{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:clamp(1.4rem,4vw,3.2rem) clamp(1.6rem,5vw,4.4rem);
+    align-items:center;
+    justify-items:center;
+  }
+  .client-logos__item{
+    min-height:clamp(3.2rem,6vw,5rem);
+    display:grid;
+    place-items:center;
+    width:100%;
+  }
+  .client-logos__item img{
+    width:min(100%,clamp(8rem,13vw,13rem));
+    max-height:clamp(2.4rem,4.8vw,4.6rem);
+    object-fit:contain;
+    opacity:.76;
+  }
+  .client-logos__item--wide img{width:min(100%,clamp(12rem,20vw,18rem));max-height:clamp(2.8rem,5vw,4.8rem)}
+  .offer-stack{display:grid;gap:clamp(3.2rem,7vw,6rem);padding-block:clamp(3.4rem,7vw,6.4rem)}
+  .offer-row{
+    display:grid;grid-template-columns:minmax(18rem,.74fr) minmax(0,1fr);
+    gap:clamp(1.8rem,6vw,6rem);align-items:center;
+  }
+  .offer-row:nth-child(even){grid-template-columns:minmax(0,1fr) minmax(18rem,.74fr)}
+  .offer-row:nth-child(even) .offer-media{order:2}
+  .offer-media{aspect-ratio:4/5}
+  .offer-media--social img{object-position:center center}
+  .offer-details{max-width:45rem}
+  .offer-details h3{font-size:clamp(1.32rem,2.59vw,2.34rem);line-height:1.08;margin-bottom:1rem}
+  .offer-details p{color:var(--ink-soft)}
+  .service-list{margin:1.2rem 0 0;padding-left:1.1rem;color:var(--ink-soft);font-size:1rem;line-height:1.65}
+  .service-list li + li{margin-top:.45rem}
+  .price-line{
+    margin-top:1.3rem;padding-top:1rem;border-top:1.5px solid rgba(32,24,24,.22);
+    font-family:var(--caps);text-transform:uppercase;letter-spacing:.15em;font-size:.7rem;line-height:1.45;color:var(--ink);
+  }
+  .setup-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+  .setup-card{border:1.5px solid rgba(32,24,24,.22);background:rgba(255,255,255,.5);padding:clamp(1.35rem,2.5vw,2rem)}
+  .setup-card h3{font-size:clamp(1.12rem,1.8vw,1.68rem);line-height:1.08;margin-bottom:1rem}
+  .setup-card p{color:var(--ink-soft);font-size:1rem;line-height:1.62}
+  @media (prefers-reduced-motion:reduce){
+    [data-footer-reveal]{opacity:1;transform:none;transition:none}
+    .page-loader,.page-loader__mark{animation:none;transition:none}
+    .page-loader__mark{opacity:1}
+  }
+  @media (max-width:850px){
+    .nav-menu{grid-template-columns:1fr;gap:1.35rem}
+    .hero__inner,.intro,.section-head,.offering,.offering:nth-of-type(even),.why,.editorial-split,.offer-row,.offer-row:nth-child(even){grid-template-columns:1fr}
+    .offering:nth-of-type(even) .offering__media{order:0}
+    .offer-row:nth-child(even) .offer-media{order:0}
+    .offering__media{aspect-ratio:4/3}
+    .small-grid,.template-panel,.quote-grid,.service-index,.setup-grid{grid-template-columns:1fr}
+    .client-logos__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.4rem}
+    .services-hero{min-height:calc(76svh - var(--navh))}
+  }
+</style>
+</head>
+<body>
+<div class="page-loader" data-page-loader aria-hidden="true"><img class="page-loader__mark" src="assets/loading-logo-cream.png" alt=""></div>
+<div class="announce"><a href="services.html">now booking Fall 2026 projects and retainers</a></div>
+<header class="nav" data-nav>
+  <a class="nav__mark" href="index.html#intro" aria-label="Craft and Being home">
+    <img src="assets/logo-cream.png" alt="Craft &amp; Being">
+  </a>
+  <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu">
+    <span class="menu-toggle__lines" aria-hidden="true"></span>
+  </button>
+</header>
+<div class="nav-menu" id="site-menu" data-menu>
+  <p class="nav-menu__about">Craft &amp; Being is a studio practice dedicated to creativity, leisure, and meaningful work.</p>
+  <nav class="nav-menu__links" aria-label="Site">
+    <a href="index.html#about"><span>About</span></a>
+    <a href="services.html"><span>Services</span></a>
+    <a href="index.html#newsletter"><span>Newsletter</span></a>
+    <a href="gatherings.html"><span>Gatherings</span></a>
+    <a href="#contact"><span>Contact</span></a>
+  </nav>
+</div>
+
+<main>
+  <section class="services-hero" aria-label="Services introduction">
+    <div class="services-hero__inner">
+      <p class="eyebrow">Creative Marketing Support</p>
+      <h1>Create a Stronger <span class="rotating-word" data-rotating-words aria-live="polite"><span class="rotating-word__item is-active">Brand</span><span class="rotating-word__item">Online Presence</span><span class="rotating-word__item">Connection</span><span class="rotating-word__item">Conversation</span><span class="rotating-word__item">Impact</span><span class="rotating-word__item">World</span></span></h1>
+      <p>For founders and brands with ideas, offers, and a body of work ready to be translated into a more intentional online presence.</p>
+      <a class="button" href="#inquire">Inquire about services</a>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="centered-copy">
+      <p class="eyebrow">With Craft &amp; Being</p>
+      <h2>Your ideas go further</h2>
+      <p>We help gather the IP already living in your notes app, offers, conversations, long-form content, and brand world, and translate them into thoughtful marketing that feels true to the mission you are building.</p>
+    </div>
+    <div class="service-index" aria-label="Services overview">
+      <a class="service-card" href="#monthly-retainers">
+        <div>
+          <p class="caps">Ongoing</p>
+          <h3>Monthly Retainers</h3>
+        </div>
+        <p>Ongoing content, copy, creative direction, and digital support for founders and brands who want a more consistent presence.</p>
+      </a>
+      <a class="service-card" href="#setup">
+        <div>
+          <p class="caps">Foundational</p>
+          <h3>Set Up Your Foundation</h3>
+        </div>
+        <p>Reusable social and email systems in your brand visuals and voice that create familiarity.</p>
+      </a>
+      <a class="service-card" href="#direction-call">
+        <div>
+          <p class="caps">Focused</p>
+          <h3>Creative Direction Call</h3>
+        </div>
+        <p>A single working session for clarity around an offer, launch, content system, or visibility question.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="wrap client-logos" aria-label="Trusted clients and partners">
+    <p class="eyebrow">Trusted by clients and partners like</p>
+    <div class="client-logos__grid">
+      <a class="client-logos__item" href="https://www.abidingtogetherpodcast.com/"><img src="assets/client-logo-toned-01.png" alt="Abiding Together"></a>
+      <a class="client-logos__item client-logos__item--wide" href="https://www.reformwellness.co/"><img src="assets/client-logo-toned-02.png" alt="Reform"></a>
+      <a class="client-logos__item" href="https://www.liferestoration.org/"><img src="assets/client-logo-toned-03.png" alt="Life Restoration Ministries"></a>
+      <a class="client-logos__item client-logos__item--wide" href="https://luminaryleadershipco.com/"><img src="assets/client-logo-toned-04.png" alt="Luminary Leadership Co"></a>
+      <a class="client-logos__item client-logos__item--wide" href="https://ktmerry.com/"><img src="assets/client-logo-toned-05.png" alt="KT Merry"></a>
+      <a class="client-logos__item" href="https://www.redbird.love/"><img src="assets/client-logo-toned-06.png" alt="Red Bird Ministries"></a>
+      <a class="client-logos__item client-logos__item--wide" href="https://www.lisacanning.ca/"><img src="assets/client-logo-toned-07.png" alt="Lisa Canning, The Possibility Mom"></a>
+      <a class="client-logos__item client-logos__item--wide" href="https://podcasts.apple.com/ca/podcast/what-in-the-dang-heck/id1515788822"><img src="assets/client-logo-toned-witdh.png" alt="What in the Dang Heck"></a>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="editorial-split">
+      <div class="frame editorial-split__media"><img src="https://www.dropbox.com/scl/fi/7fbbafgmlcnxphjsshzv3/4.jpg?rlkey=ipeizh2g5vq8zf13f5fmieerp&st=1apgtqu0&raw=1" alt=""></div>
+      <div class="editorial-split__copy">
+        <p class="eyebrow">Own your online space</p>
+        <h2>Turn your ideas into conversations.</h2>
+        <p>Many founders and brands are handed a beautiful brand kit, then left to figure out how the concepts they approved becomes what they envisioned: the social posts, emails, landing pages, long-form content, and launch materials that support the mission.</p>
+        <p>We help you move from scattered ideas to a more cohesive creative presence: one that reflects your language, your values, and the people you are called to serve.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="image-band image-band--retainers" aria-label="Monthly retainers imagery">
+    <div class="image-band__content">
+      <h2>Monthly Retainers</h2>
+      <p>For founders and brands who want steady creative partnership, these ongoing scopes turn your thinking into a more consistent presence across content, email, campaign materials, and digital touchpoints.</p>
+    </div>
+  </section>
+
+  <section class="wrap offer-stack" id="monthly-retainers" aria-label="Monthly retainer services">
+    <article class="offer-row">
+      <div class="frame offer-media"><img src="https://www.dropbox.com/scl/fi/spgfd9r3dp3ookml04o3n/1.jpg?rlkey=jq9tcbob2hv3okhbulp34y0kh&st=6aot4lpf&raw=1" alt=""></div>
+      <div class="offer-details">
+        <p class="eyebrow">Monthly Retainer</p>
+        <h3>Full Service Content Partnership</h3>
+        <p>A custom monthly partnership for founders and brands seeking strategic creative support to grow and execute their ideas. This is best for offers, campaigns, launches, thought leadership, and content ecosystems that need both strategy and execution.</p>
+        <ul class="service-list">
+          <li>Content strategy, editorial planning, copywriting, and creative direction</li>
+          <li>Content design for key campaign, thought leadership, or brand storytelling needs</li>
+          <li>Web and landing page design available as part of a custom scope</li>
+        </ul>
+        <p class="price-line">Custom priced. Inquire about availability.</p>
+      </div>
+    </article>
+
+    <article class="offer-row">
+      <div class="frame offer-media offer-media--social"><img src="https://www.dropbox.com/scl/fi/wua15it686d2lhcy1l6j7/7.jpg?rlkey=znrbto4oqmzkkaocziw1rta6h&st=7nijc7gh&raw=1" alt=""></div>
+      <div class="offer-details">
+        <p class="eyebrow">Monthly Retainer</p>
+        <h3>Social Media</h3>
+        <p>Ongoing content creation for founders and brands who want their social presence to feel more aligned, useful, and considered without creating every caption and visual from scratch.</p>
+        <ul class="service-list">
+          <li>Monthly content themes and direction</li>
+          <li>Caption writing and visual content design</li>
+          <li>Content creation only; scheduling and publishing are an optional add-on</li>
+        </ul>
+        <p class="price-line">Packages start at $900 monthly.</p>
+      </div>
+    </article>
+
+    <article class="offer-row">
+      <div class="frame offer-media"><img src="https://www.dropbox.com/scl/fi/rcj45kdb7d405a27478wk/2.jpg?rlkey=itacm0iah0qfoqixoscqps5ut&st=mrudxfw2&raw=1" alt=""></div>
+      <div class="offer-details">
+        <p class="eyebrow">Monthly Retainer</p>
+        <h3>Email Marketing</h3>
+        <p>Email content support for founders and brands who want to stay in conversation with their audience through thoughtful newsletters, launch promotions, and campaign messaging.</p>
+        <ul class="service-list">
+          <li>Newsletter or campaign copywriting</li>
+          <li>Editorial direction for recurring email communication</li>
+          <li>Content creation only; scheduling and platform management remain client-led</li>
+        </ul>
+        <p class="price-line">Packages start at $600 monthly.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="image-band image-band--setup" aria-label="Foundational setup imagery">
+    <div class="image-band__content">
+      <h2>Set Up Your Foundation</h2>
+      <p>For founders and brands who need a refined structure, these one-time projects translate your brand identity into reusable formats for the places you show up most.</p>
+    </div>
+  </section>
+
+  <section class="wrap section" id="setup" aria-label="Foundational setup services">
+    <div class="setup-grid">
+      <article class="setup-card">
+        <p class="eyebrow">Template System</p>
+        <h3>Social Media Templates</h3>
+        <p>A custom set of 12 editable templates designed to help your visual identity become easier to use across recurring post types, launches, and thought leadership.</p>
+        <p class="note">Includes an audit and strategy call.</p>
+        <p class="price-line">Starts at $1,600</p>
+      </article>
+      <article class="setup-card">
+        <p class="eyebrow">Template System</p>
+        <h3>Email Newsletter Templates</h3>
+        <p>A custom set of 2-3 email frameworks for newsletters, offers, announcements, and relationship-building notes you can return to again and again.</p>
+        <p class="note">Includes an audit and strategy call.</p>
+        <p class="price-line">Starts at $1,600</p>
+      </article>
+      <article class="setup-card" id="direction-call">
+        <p class="eyebrow">Focused Support</p>
+        <h3>Content and Creative Direction Call</h3>
+        <p>A one-time focused working session for founders and brands who need clarity around an offer, content system, launch idea, messaging question, or next creative move.</p>
+        <p class="price-line">$299</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="why">
+      <div>
+        <p class="eyebrow">Our Approach</p>
+        <p class="pull">A slower and more considered way to grow your visibility.</p>
+      </div>
+      <div class="why-list">
+        <article class="why-item">
+          <h3>Story Before Output</h3>
+          <p>We begin with the deeper point of view beneath your work so the content has a reason to exist beyond filling a calendar.</p>
+        </article>
+        <article class="why-item">
+          <h3>Design That Extends the Brand</h3>
+          <p>Your brand kit becomes a living system: something that can flex across posts, emails, landing pages, launches, and everyday communication.</p>
+        </article>
+        <article class="why-item">
+          <h3>Creative Capacity</h3>
+          <p>We help hold the strategy, copy, and design thinking so you can stay close to the work only you can do.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-panel" id="inquire">
+    <div>
+      <p class="eyebrow">Limited Availability</p>
+      <h2>Begin with the work you already have.</h2>
+      <p>Tell us what you are building, what is sitting in your notes, and where you want your creative presence to go next. If it feels aligned, we will recommend the simplest path forward.</p>
+      <a class="button" href="mailto:hello@craftandbeing.com">Inquire about services</a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" id="contact" data-footer-reveal>
+  <div class="contact__inner">
+    <img class="contact__seal" src="assets/footer-logo.png" alt="Craft & Being seal">
+    <p class="contact__tagline">Design studio cultivating<br>conversations about <em>good work</em></p>
+    <div class="contact__links" aria-label="Contact links">
+      <a href="mailto:hello@craftandbeing.com">hello@craftandbeing.com</a>
+      <a href="https://instagram.com/craftandbeing">@craftandbeing on Instagram</a>
+    </div>
+  </div>
+  <div class="foot__legal">
+    <p class="foot__meta">website and imagery by Craft &amp; Being unless otherwise specified.</p>
+    <p class="foot__meta">Craft &amp; Being Studio — All Rights Reserved © 2026</p>
+  </div>
+</footer>
+<script>
+  (function(){
+    var nav = document.querySelector('[data-nav]');
+    var menu = document.querySelector('[data-menu]');
+    var toggle = document.querySelector('.menu-toggle');
+    function setMenu(open){
+      if(!nav || !menu || !toggle) return;
+      nav.classList.toggle('is-open', open);
+      menu.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    }
+    if(toggle){
+      toggle.addEventListener('click', function(event){
+        event.stopPropagation();
+        setMenu(toggle.getAttribute('aria-expanded') !== 'true');
+      });
+    }
+    if(menu){
+      menu.addEventListener('click', function(event){
+        if(event.target.closest && event.target.closest('a')) setMenu(false);
+      });
+    }
+    document.addEventListener('keydown', function(event){
+      if(event.key === 'Escape') setMenu(false);
+    });
+
+    var items = document.querySelectorAll('[data-footer-reveal]');
+    var rotating = document.querySelector('[data-rotating-words]');
+    if(rotating && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      var words = rotating.querySelectorAll('.rotating-word__item');
+      var wordIndex = 0;
+      window.setInterval(function(){
+        words[wordIndex].classList.remove('is-active');
+        wordIndex = (wordIndex + 1) % words.length;
+        words[wordIndex].classList.add('is-active');
+      }, 3400);
+    }
+    if(!('IntersectionObserver' in window)){
+      items.forEach(function(el){ el.classList.add('is-in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('is-in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold:.12, rootMargin:'0px 0px -8% 0px' });
+    items.forEach(function(el){ io.observe(el); });
+  })();
+</script>
+<script>
+  (function(){
+    var loader = document.querySelector('[data-page-loader]');
+    if(!loader) return;
+    function hideLoader(){ loader.classList.add('is-hidden'); loader.classList.remove('is-active'); }
+    function showLoader(){ loader.classList.remove('is-hidden'); loader.classList.add('is-active'); }
+    window.addEventListener('load', function(){ window.setTimeout(hideLoader, 520); });
+    window.addEventListener('pageshow', hideLoader);
+    document.addEventListener('click', function(event){
+      var link = event.target.closest && event.target.closest('a[href]');
+      if(!link || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      if(link.target && link.target !== '_self') return;
+      var href = link.getAttribute('href') || '';
+      if(!href || href.charAt(0) === '#' || href.indexOf('mailto:') === 0 || href.indexOf('tel:') === 0) return;
+      showLoader();
+    });
+  })();
+</script>
+</body>
+</html>
