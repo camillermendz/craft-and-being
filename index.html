@@ -440,6 +440,9 @@
   /* ---- footer ---- */
   .foot{background:var(--mahogany);color:#f4f3ed;text-align:center;padding:0 var(--pad) clamp(2.3rem,4vw,3rem)}
   .foot__legal{padding-top:.3rem}
+  .foot__links{display:flex;justify-content:center;gap:.75rem 1rem;flex-wrap:wrap;margin:0 auto .75rem}
+  .foot__links a{color:inherit;text-decoration:none;font-family:var(--caps);font-size:.58rem;letter-spacing:.14em;line-height:1.55;text-transform:uppercase}
+  .foot__links a:hover{font-style:italic}
   .foot__meta{max-width:42rem;margin:0 auto;color:#f4f3ed;font-family:var(--caps);font-size:.58rem;letter-spacing:.14em;line-height:1.55;text-transform:uppercase}
   .foot__meta + .foot__meta{margin-top:.45rem}
   [data-footer-reveal]{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s cubic-bezier(.22,.61,.36,1)}
@@ -695,6 +698,10 @@
     </div>
   </div>
   <div class="foot__legal">
+    <div class="foot__links" aria-label="Legal links">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms-of-use/">Terms of Use</a>
+    </div>
     <p class="foot__meta">website and imagery by Craft &amp; Being unless otherwise specified.</p>
     <p class="foot__meta">Craft &amp; Being Studio — All Rights Reserved © 2026</p>
   </div>
