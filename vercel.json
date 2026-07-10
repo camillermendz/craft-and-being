@@ -2,7 +2,10 @@
   "redirects": [
     { "source": "/services.html", "destination": "/services/", "permanent": true },
     { "source": "/gatherings.html", "destination": "/gatherings/", "permanent": true },
-    { "source": "/gatherings/june9-feedback.html", "destination": "/gatherings/june9-feedback/", "permanent": true },
+    { "source": "/gatherings/june9-feedback", "destination": "/gatherings/july9-feedback/", "permanent": true },
+    { "source": "/gatherings/june9-feedback/", "destination": "/gatherings/july9-feedback/", "permanent": true },
+    { "source": "/gatherings/june9-feedback.html", "destination": "/gatherings/july9-feedback/", "permanent": true },
+    { "source": "/gatherings/july9-feedback.html", "destination": "/gatherings/july9-feedback/", "permanent": true },
     { "source": "/contact.html", "destination": "/contact/", "permanent": true },
     { "source": "/privacy-policy.html", "destination": "/privacy-policy/", "permanent": true },
     { "source": "/terms-of-use.html", "destination": "/terms-of-use/", "permanent": true },

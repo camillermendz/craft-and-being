@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Motherhood x Creativity Gathering Feedback</title>
-  <link rel="canonical" href="https://www.craftandbeing.com/gatherings/june9-feedback">
-  <meta property="og:url" content="https://www.craftandbeing.com/gatherings/june9-feedback">
+  <link rel="canonical" href="https://www.craftandbeing.com/gatherings/july9-feedback">
+  <meta property="og:url" content="https://www.craftandbeing.com/gatherings/july9-feedback">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500&family=Della+Respira&family=Kumbh+Sans:wght@400;500&display=swap" rel="stylesheet">
@@ -520,7 +520,8 @@
           <p class="anonymous">Your answers are completely anonymous, so please share honestly. The goal is to shape gatherings that feel supportive, thoughtful, and easy to say yes to.</p>
         </aside>
 
-        <form id="feedback-form">
+        <form id="feedback-form" action="https://formspree.io/f/xwvdgbvq" method="POST">
+          <input type="hidden" name="_subject" value="New Motherhood x Creativity Gathering feedback">
           <div class="question">
             <div class="question-title"><span class="number">01</span><span>What was the best part of the Motherhood x Creativity Gathering?</span></div>
             <textarea name="best_part" aria-label="What was the best part of the Motherhood x Creativity Gathering?"></textarea>
@@ -601,22 +602,9 @@
             <button type="submit">Submit feedback</button>
             <span class="privacy">Anonymous responses only. No name or email is required.</span>
           </div>
-          <div class="thanks" id="thanks" role="status">Thank you. Your response is ready for collection once this form is connected to your survey tool.</div>
         </form>
       </div>
     </section>
   </main>
-
-  <script>
-    const form = document.querySelector("#feedback-form");
-    const thanks = document.querySelector("#thanks");
-
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      thanks.classList.add("is-visible");
-      form.reset();
-      thanks.scrollIntoView({ behavior: "smooth", block: "center" });
-    });
-  </script>
 </body>
 </html>
