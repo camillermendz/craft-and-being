@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Motherhood x Creativity Gathering Feedback</title>
+  <link rel="canonical" href="https://www.craftandbeing.com/gatherings/june9-feedback">
+  <meta property="og:url" content="https://www.craftandbeing.com/gatherings/june9-feedback">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500&family=Della+Respira&family=Kumbh+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f4f3ed;
+      --ink: #201818;
+      --ink-soft: rgba(32, 24, 24, 0.72);
+      --olive: #7d7b54;
+      --moss: #4f5134;
+      --line: rgba(32, 24, 24, 0.18);
+      --field: #fbfaf5;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: var(--cream);
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: Alegreya, Georgia, serif;
+      font-size: 18px;
+      line-height: 1.72;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .announcement {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 37px;
+      padding: 8px 20px;
+      background: var(--olive);
+      color: var(--cream);
+      font-family: "Kumbh Sans", Arial, sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.17em;
+      line-height: 1.35;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      min-height: 74px;
+      padding: 0 clamp(20px, 4vw, 48px);
+      background: rgba(244, 243, 237, 0.9);
+      backdrop-filter: blur(12px);
+    }
+
+    .brand {
+      grid-column: 2;
+      color: var(--ink);
+      font-family: "Della Respira", Georgia, serif;
+      font-size: 1.02rem;
+      letter-spacing: 0.16em;
+      line-height: 1;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .brand span {
+      display: block;
+      font-family: Alegreya, Georgia, serif;
+      font-size: 1.85rem;
+      font-style: italic;
+      letter-spacing: 0;
+      line-height: 0.68;
+      text-transform: none;
+    }
+
+    .menu-lines {
+      justify-self: end;
+      width: 25px;
+      height: 14px;
+      border-top: 1.5px solid var(--ink);
+      border-bottom: 1.5px solid var(--ink);
+    }
+
+    .hero {
+      position: relative;
+      min-height: clamp(600px, 78vh, 780px);
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      color: var(--cream);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      background-image:
+        linear-gradient(90deg, rgba(32, 24, 24, 0.72), rgba(32, 24, 24, 0.28) 52%, rgba(32, 24, 24, 0.08)),
+        linear-gradient(0deg, rgba(32, 24, 24, 0.42), rgba(32, 24, 24, 0.12));
+      z-index: 1;
+    }
+
+    .hero::after {
+      background: rgba(32, 24, 24, 0.18);
+      z-index: 1;
+    }
+
+    .hero img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 58%;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+      width: min(980px, 100%);
+      padding: clamp(54px, 8vw, 92px) clamp(26px, 5vw, 52px);
+    }
+
+    .eyebrow,
+    .micro {
+      font-family: "Kumbh Sans", Arial, sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.17em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    legend {
+      font-family: "Della Respira", Georgia, serif;
+      font-weight: 400;
+      letter-spacing: 0.003em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 10.5ch;
+      margin: 16px 0 18px;
+      color: var(--cream);
+      font-size: 4rem;
+      line-height: 0.98;
+    }
+
+    .intro {
+      max-width: 740px;
+      margin: 0;
+      color: var(--cream);
+      font-size: 1.42rem;
+      line-height: 1.45;
+    }
+
+    .button-link {
+      display: inline-flex;
+      margin-top: 28px;
+      padding: 14px 20px 13px;
+      border: 1px solid var(--cream);
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "Kumbh Sans", Arial, sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.17em;
+      line-height: 1;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .content {
+      padding: clamp(56px, 7vw, 92px) clamp(22px, 5vw, 64px) clamp(72px, 8vw, 112px);
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: minmax(230px, 0.7fr) minmax(0, 1.3fr);
+      gap: clamp(34px, 7vw, 96px);
+      max-width: 1160px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .side-note {
+      position: sticky;
+      top: 112px;
+      display: grid;
+      gap: 22px;
+      max-width: 360px;
+    }
+
+    .side-note h2 {
+      margin: 0;
+      font-size: 3rem;
+      line-height: 1.08;
+    }
+
+    .side-note p {
+      margin: 0;
+      color: var(--ink-soft);
+    }
+
+    .anonymous {
+      padding-top: 22px;
+    }
+
+    form {
+      display: grid;
+      gap: 0;
+    }
+
+    fieldset,
+    .question {
+      margin: 0;
+      padding: 30px 0;
+      border: 0;
+    }
+
+    .question-title {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      margin: 0 0 18px;
+      color: var(--ink);
+      font-family: Alegreya, Georgia, serif;
+      font-size: 1.9rem;
+      font-weight: 500;
+      letter-spacing: 0;
+      line-height: 1.18;
+      text-transform: none;
+    }
+
+    .number {
+      color: var(--olive);
+      font-family: "Kumbh Sans", Arial, sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.17em;
+      line-height: 2.1;
+    }
+
+    .hint {
+      margin: -8px 0 16px 60px;
+      color: var(--ink-soft);
+      font-size: 0.96rem;
+      line-height: 1.45;
+    }
+
+    .choices {
+      display: grid;
+      gap: 12px;
+      margin-left: 60px;
+    }
+
+    .choice {
+      display: grid;
+      grid-template-columns: 18px minmax(0, 1fr);
+      gap: 13px;
+      align-items: start;
+      color: var(--ink-soft);
+      cursor: pointer;
+      line-height: 1.35;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+      width: 16px;
+      height: 16px;
+      margin: 5px 0 0;
+      accent-color: var(--moss);
+    }
+
+    input[type="text"],
+    textarea {
+      width: calc(100% - 60px);
+      margin-left: 60px;
+      border: 1px solid var(--line);
+      border-radius: 0;
+      background: var(--field);
+      color: var(--ink);
+      font: inherit;
+      padding: 14px 15px;
+      outline: none;
+      transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    textarea {
+      min-height: 108px;
+      resize: vertical;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus {
+      border-color: var(--olive);
+      box-shadow: 0 0 0 3px rgba(125, 123, 84, 0.16);
+    }
+
+    .other-row {
+      display: grid;
+      grid-template-columns: auto minmax(160px, 1fr);
+      gap: 12px;
+      align-items: center;
+      margin: 14px 0 0 60px;
+      color: var(--ink-soft);
+    }
+
+    .other-row input {
+      width: 100%;
+      margin-left: 0;
+    }
+
+    .budget-note {
+      margin: -6px 0 18px 60px;
+      color: var(--ink-soft);
+      font-style: italic;
+      line-height: 1.45;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+      padding-top: 30px;
+    }
+
+    button {
+      border: 1px solid var(--ink);
+      border-radius: 0;
+      background: var(--ink);
+      color: var(--cream);
+      cursor: pointer;
+      font-family: "Kumbh Sans", Arial, sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.17em;
+      line-height: 1;
+      padding: 15px 21px 14px;
+      text-transform: uppercase;
+      transition: background 160ms ease, color 160ms ease;
+    }
+
+    button:hover {
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .privacy {
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+
+    .thanks {
+      display: none;
+      margin-top: 18px;
+      padding: 16px 18px;
+      border: 1px solid rgba(125, 123, 84, 0.45);
+      color: var(--moss);
+    }
+
+    .thanks.is-visible {
+      display: block;
+    }
+
+    @media (max-width: 850px) {
+      .site-header {
+        min-height: 72px;
+      }
+
+      .hero {
+        min-height: 690px;
+      }
+
+      .hero::before {
+        background-image:
+          linear-gradient(0deg, rgba(32, 24, 24, 0.7), rgba(32, 24, 24, 0.16) 62%),
+          linear-gradient(90deg, rgba(32, 24, 24, 0.35), rgba(32, 24, 24, 0.06));
+      }
+
+      .hero img {
+        object-position: 58% center;
+      }
+
+      h1 {
+        max-width: 9.4ch;
+        font-size: 3.1rem;
+      }
+
+      .intro {
+        font-size: 1.28rem;
+      }
+
+      .side-note h2 {
+        font-size: 2.55rem;
+      }
+
+      .section-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .side-note {
+        position: static;
+        max-width: 640px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      body {
+        font-size: 17px;
+      }
+
+      .announcement {
+        font-size: 0.61rem;
+      }
+
+      .brand {
+        font-size: 0.84rem;
+      }
+
+      .brand span {
+        font-size: 1.5rem;
+      }
+
+      .hero {
+        min-height: 650px;
+      }
+
+      h1 {
+        max-width: 100%;
+        font-size: 2.2rem;
+        line-height: 1.04;
+      }
+
+      .intro {
+        font-size: 1.16rem;
+      }
+
+      .side-note h2 {
+        font-size: 2.18rem;
+      }
+
+      .question-title {
+        font-size: 1.48rem;
+      }
+
+      .question-title {
+        grid-template-columns: 1fr;
+        gap: 3px;
+      }
+
+      .number {
+        line-height: 1;
+      }
+
+      .hint,
+      .choices,
+      .budget-note,
+      input[type="text"],
+      textarea,
+      .other-row {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      .other-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="announcement">Now gathering reflections for future Motherhood x Creativity experiences</div>
+  <header class="site-header" aria-label="Craft & Being">
+    <div></div>
+    <div class="brand">Craft <span>&amp;</span> Being</div>
+    <div class="menu-lines" aria-hidden="true"></div>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="Motherhood x Creativity Gathering Feedback">
+      <img src="assets/motherhood-creativity-gathering.jpg" alt="Women gathered outdoors around a creative scrapbooking table">
+      <div class="hero-copy">
+        <div class="eyebrow">Feedback Survey</div>
+        <h1>Motherhood x creativity</h1>
+        <p class="intro">I would love to consider your honest reflections as I plan future gatherings across the GVA.</p>
+        <a class="button-link" href="#feedback-form">Share feedback</a>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="section-grid">
+        <aside class="side-note">
+          <div class="micro">Anonymous Survey</div>
+          <h2>Gathering Feedback</h2>
+          <p class="anonymous">Your answers are completely anonymous, so please share honestly. The goal is to shape gatherings that feel supportive, thoughtful, and easy to say yes to.</p>
+        </aside>
+
+        <form id="feedback-form">
+          <div class="question">
+            <div class="question-title"><span class="number">01</span><span>What was the best part of the Motherhood x Creativity Gathering?</span></div>
+            <textarea name="best_part" aria-label="What was the best part of the Motherhood x Creativity Gathering?"></textarea>
+          </div>
+
+          <fieldset>
+            <legend class="question-title"><span class="number">02</span><span>What would bring you back to a future gathering?</span></legend>
+            <div class="hint">Pick any that apply.</div>
+            <div class="choices">
+              <label class="choice"><input type="checkbox" name="bring_back" value="similar_stage"><span>More women in a similar stage of life or creative pursuit</span></label>
+              <label class="choice"><input type="checkbox" name="bring_back" value="different_stages"><span>More women in different stages of life or creative pursuits</span></label>
+              <label class="choice"><input type="checkbox" name="bring_back" value="activity_interest"><span>An activity that really interests me</span></label>
+              <label class="choice"><input type="checkbox" name="bring_back" value="deeper_topics"><span>More time to go deep on specific topics</span></label>
+              <label class="choice"><input type="checkbox" name="bring_back" value="more_learning"><span>More learning</span></label>
+            </div>
+            <div class="other-row">
+              <label for="bring-back-other">Other</label>
+              <input id="bring-back-other" type="text" name="bring_back_other" aria-label="Other reason that would bring you back">
+            </div>
+          </fieldset>
+
+          <div class="question">
+            <div class="question-title"><span class="number">03</span><span>What “play” activities or workshops would you be interested in next time?</span></div>
+            <textarea name="play_activities" aria-label="What play activities or workshops would you be interested in next time?"></textarea>
+          </div>
+
+          <fieldset>
+            <legend class="question-title"><span class="number">04</span><span>How elevated would you like these gatherings to feel?</span></legend>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="elevated_feel" value="simple_casual"><span>Keep it simple and casual</span></label>
+              <label class="choice"><input type="radio" name="elevated_feel" value="mix_it_up"><span>Mix it up</span></label>
+              <label class="choice"><input type="radio" name="elevated_feel" value="one_of_a_kind"><span>One-of-a-kind experiences, such as unique venues or things you cannot do elsewhere</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend class="question-title"><span class="number">05</span><span>What would feel comfortable to pay per gathering?</span></legend>
+            <p class="budget-note">Experiences will be crafted based on the allotted budget.</p>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="price" value="30_50"><span>$30–$50</span></label>
+              <label class="choice"><input type="radio" name="price" value="50_100"><span>$50–$100</span></label>
+              <label class="choice"><input type="radio" name="price" value="100_200"><span>$100–$200</span></label>
+              <label class="choice"><input type="radio" name="price" value="200_plus"><span>$200+</span></label>
+              <label class="choice"><input type="radio" name="price" value="depends"><span>It depends on the experience</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend class="question-title"><span class="number">06</span><span>How often would you be willing to come out?</span></legend>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="frequency" value="every_other_month"><span>Every other month</span></label>
+              <label class="choice"><input type="radio" name="frequency" value="quarterly"><span>Quarterly</span></label>
+              <label class="choice"><input type="radio" name="frequency" value="semi_annually"><span>Semi-annually</span></label>
+            </div>
+            <div class="other-row">
+              <label for="frequency-other">Other</label>
+              <input id="frequency-other" type="text" name="frequency_other" aria-label="Other gathering frequency">
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend class="question-title"><span class="number">07</span><span>What day and time of day works best for you?</span></legend>
+            <div class="choices">
+              <label class="choice"><input type="checkbox" name="best_time" value="weekday_late_morning"><span>Weekday late morning</span></label>
+              <label class="choice"><input type="checkbox" name="best_time" value="weekday_afternoon_evening"><span>Weekday afternoon/evening</span></label>
+              <label class="choice"><input type="checkbox" name="best_time" value="weekend_late_morning"><span>Weekend late morning</span></label>
+              <label class="choice"><input type="checkbox" name="best_time" value="weekend_afternoon_evening"><span>Weekend afternoon/evening</span></label>
+            </div>
+          </fieldset>
+
+          <div class="question">
+            <div class="question-title"><span class="number">08</span><span>If anyone comes to mind who would love an experience like this, feel free to share their name or contact so I can include them on the invitation list for the next gathering.</span></div>
+            <div class="hint">Optional question.</div>
+            <input type="text" name="referral" aria-label="Name or contact of someone to include on the invitation list for the next gathering">
+          </div>
+
+          <div class="actions">
+            <button type="submit">Submit feedback</button>
+            <span class="privacy">Anonymous responses only. No name or email is required.</span>
+          </div>
+          <div class="thanks" id="thanks" role="status">Thank you. Your response is ready for collection once this form is connected to your survey tool.</div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const form = document.querySelector("#feedback-form");
+    const thanks = document.querySelector("#thanks");
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      thanks.classList.add("is-visible");
+      form.reset();
+      thanks.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+  </script>
+</body>
+</html>
