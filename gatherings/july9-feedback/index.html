@@ -12,12 +12,20 @@
   <style>
     :root {
       --cream: #f4f3ed;
+      --paper: #f4f3ed;
+      --paper-2: #ebe6dc;
       --ink: #201818;
       --ink-soft: rgba(32, 24, 24, 0.72);
       --olive: #7d7b54;
+      --rust: #722106;
       --moss: #4f5134;
       --line: rgba(32, 24, 24, 0.18);
       --field: #fbfaf5;
+      --pad: clamp(1.1rem, 3vw, 3.2rem);
+      --caps: "Kumbh Sans", Arial, sans-serif;
+      --display: "Della Respira", Georgia, serif;
+      --navh: 74px;
+      --announceh: 38px;
     }
 
     * {
@@ -42,62 +50,178 @@
       max-width: 100%;
     }
 
-    .announcement {
+    .announce {
+      min-height: var(--announceh);
       display: flex;
-      justify-content: center;
       align-items: center;
-      min-height: 37px;
-      padding: 8px 20px;
-      background: var(--olive);
-      color: var(--cream);
-      font-family: "Kumbh Sans", Arial, sans-serif;
-      font-size: 0.68rem;
-      letter-spacing: 0.17em;
-      line-height: 1.35;
+      justify-content: center;
       text-align: center;
+      padding: 0.55rem var(--pad);
+      background: #7a764f;
+      color: var(--paper);
+      font-family: var(--caps);
       text-transform: uppercase;
-    }
-
-    .site-header {
+      letter-spacing: 0.17em;
+      font-size: 0.68rem;
+      line-height: 1.35;
       position: sticky;
       top: 0;
-      z-index: 10;
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      min-height: 74px;
-      padding: 0 clamp(20px, 4vw, 48px);
-      background: rgba(244, 243, 237, 0.9);
-      backdrop-filter: blur(12px);
+      z-index: 70;
     }
 
-    .brand {
-      grid-column: 2;
-      color: var(--ink);
-      font-family: "Della Respira", Georgia, serif;
-      font-size: 1.02rem;
-      letter-spacing: 0.16em;
-      line-height: 1;
-      text-align: center;
-      text-transform: uppercase;
+    .announce a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .brand span {
-      display: block;
-      font-family: Alegreya, Georgia, serif;
-      font-size: 1.85rem;
+    .announce a:hover {
       font-style: italic;
+    }
+
+    .nav {
+      position: sticky;
+      top: var(--announceh);
+      z-index: 50;
+      height: var(--navh);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 var(--pad);
+      background: rgba(244, 243, 237, 0.88);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav__mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: min(148px, 32vw);
+      height: var(--navh);
+      overflow: hidden;
+    }
+
+    .nav__mark img {
+      width: 100%;
+      height: auto;
+      filter: brightness(0) saturate(100%);
+    }
+
+    .menu-toggle {
+      position: absolute;
+      right: var(--pad);
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      width: 2.65rem;
+      height: 2.65rem;
+      padding: 0;
+      display: grid;
+      place-items: center;
+      margin: 0;
+      min-height: 0;
+      line-height: 1;
       letter-spacing: 0;
-      line-height: 0.68;
       text-transform: none;
     }
 
-    .menu-lines {
-      justify-self: end;
-      width: 25px;
-      height: 14px;
-      border-top: 1.5px solid var(--ink);
-      border-bottom: 1.5px solid var(--ink);
+    .menu-toggle:hover {
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .menu-toggle__lines {
+      position: relative;
+      width: 1.55rem;
+      height: 0.72rem;
+      display: block;
+    }
+
+    .menu-toggle__lines::before,
+    .menu-toggle__lines::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 1.5px;
+      background: #201818;
+      transition: transform 0.35s ease, top 0.35s ease;
+    }
+
+    .menu-toggle__lines::before {
+      top: 0;
+    }
+
+    .menu-toggle__lines::after {
+      top: 0.62rem;
+    }
+
+    .nav.is-open .menu-toggle__lines::before {
+      top: 0.31rem;
+      transform: rotate(35deg);
+    }
+
+    .nav.is-open .menu-toggle__lines::after {
+      top: 0.31rem;
+      transform: rotate(-35deg);
+    }
+
+    .nav-menu {
+      position: fixed;
+      top: calc(var(--announceh) + var(--navh));
+      left: 0;
+      right: 0;
+      z-index: 45;
+      background: rgba(244, 243, 237, 0.96);
+      padding: clamp(1.4rem, 3vw, 2.4rem) var(--pad) clamp(2rem, 4vw, 3rem);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(12rem, 22rem);
+      gap: clamp(2rem, 8vw, 7rem);
+      transform: translateY(-1rem);
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+      transition: opacity 0.35s ease, transform 0.35s ease, visibility 0s linear 0.35s;
+    }
+
+    .nav-menu.is-open {
+      transform: none;
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+      transition-delay: 0s;
+    }
+
+    .nav-menu__about {
+      max-width: 31rem;
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: clamp(1.05rem, 1.2vw, 1.24rem);
+      line-height: 1.58;
+    }
+
+    .nav-menu__links {
+      display: grid;
+      gap: 0.3rem;
+      align-content: start;
+    }
+
+    .nav-menu__links a {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.72rem 0;
+      text-decoration: none;
+      font-family: var(--caps);
+      text-transform: uppercase;
+      letter-spacing: 0.17em;
+      font-size: 0.78rem;
+      color: inherit;
+    }
+
+    .nav-menu__links a:hover {
+      color: var(--rust);
     }
 
     .hero {
@@ -387,9 +511,129 @@
       display: block;
     }
 
+    #contact {
+      background: var(--rust);
+      color: var(--paper);
+      text-align: center;
+    }
+
+    .contact__inner {
+      min-height: clamp(19rem, 42vh, 28rem);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(0.65rem, 1.5vw, 1.05rem);
+      max-width: 36rem;
+      margin-inline: auto;
+    }
+
+    .contact__seal {
+      width: clamp(5.5rem, 9vw, 7.5rem);
+      height: auto;
+      opacity: 0.96;
+    }
+
+    .contact__tagline {
+      font-family: var(--display);
+      font-size: clamp(0.98rem, 1.88vw, 1.84rem);
+      text-transform: uppercase;
+      line-height: 1.08;
+      margin: 0;
+      color: var(--paper);
+    }
+
+    .contact__tagline em {
+      font-style: italic;
+    }
+
+    .contact__links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.38rem;
+      margin-top: 0;
+      font-size: clamp(0.92rem, 1vw, 1.02rem);
+      line-height: 1.35;
+    }
+
+    .contact__links a {
+      color: var(--paper);
+      text-decoration: none;
+      transition: font-style 0.2s ease;
+    }
+
+    .contact__links a:hover {
+      font-style: italic;
+    }
+
+    .foot {
+      border-top: 1.5px solid #201818;
+      background: var(--rust);
+      color: var(--paper);
+      text-align: center;
+      padding: 0 var(--pad) clamp(2.3rem, 4vw, 3rem);
+    }
+
+    .foot__links {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem 1rem;
+      flex-wrap: wrap;
+      margin: 0 auto 0.75rem;
+    }
+
+    .foot__links a {
+      color: inherit;
+      text-decoration: none;
+      font-family: var(--caps);
+      font-size: 0.58rem;
+      letter-spacing: 0.14em;
+      line-height: 1.55;
+      text-transform: uppercase;
+    }
+
+    .foot__links a:hover {
+      font-style: italic;
+    }
+
+    .foot__meta {
+      max-width: 42rem;
+      margin: 0 auto;
+      color: var(--paper);
+      font-family: var(--caps);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      line-height: 1.65;
+      text-transform: uppercase;
+    }
+
+    .foot__meta + .foot__meta {
+      margin-top: 0.7rem;
+    }
+
+    [data-footer-reveal] {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.85s ease, transform 0.85s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    [data-footer-reveal].is-in {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      [data-footer-reveal] {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+
     @media (max-width: 850px) {
-      .site-header {
-        min-height: 72px;
+      .nav-menu {
+        grid-template-columns: 1fr;
       }
 
       .hero {
@@ -434,16 +678,8 @@
         font-size: 17px;
       }
 
-      .announcement {
+      .announce {
         font-size: 0.61rem;
-      }
-
-      .brand {
-        font-size: 0.84rem;
-      }
-
-      .brand span {
-        font-size: 1.5rem;
       }
 
       .hero {
@@ -494,12 +730,25 @@
   </style>
 </head>
 <body>
-  <div class="announcement">Now gathering reflections for future Motherhood x Creativity experiences</div>
-  <header class="site-header" aria-label="Craft & Being">
-    <div></div>
-    <div class="brand">Craft <span>&amp;</span> Being</div>
-    <div class="menu-lines" aria-hidden="true"></div>
+  <div class="announce"><a href="/services/">now booking Winter 2026 projects and retainers</a></div>
+  <header class="nav" data-nav>
+    <a class="nav__mark" href="/" aria-label="Craft and Being home">
+      <img src="/assets/logo-cream.png" alt="Craft &amp; Being">
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu">
+      <span class="menu-toggle__lines" aria-hidden="true"></span>
+    </button>
   </header>
+  <div class="nav-menu" id="site-menu" data-menu>
+    <p class="nav-menu__about">Craft &amp; Being is a studio practice dedicated to creativity, leisure, and meaningful work.</p>
+    <nav class="nav-menu__links" aria-label="Site">
+      <a href="/about/"><span>About</span></a>
+      <a href="/services/"><span>Services</span></a>
+      <a href="/#newsletter"><span>Newsletter</span></a>
+      <a href="/gatherings/"><span>Gatherings</span></a>
+      <a href="/contact/"><span>Contact</span></a>
+    </nav>
+  </div>
 
   <main>
     <section class="hero" aria-label="Motherhood x Creativity Gathering Feedback">
@@ -606,5 +855,73 @@
       </div>
     </section>
   </main>
+  <footer class="foot" id="contact" data-footer-reveal>
+    <div class="contact__inner">
+      <img class="contact__seal" src="/assets/footer-logo.png" alt="Craft & Being seal">
+      <p class="contact__tagline">Design studio cultivating<br>conversations about <em>good work</em></p>
+      <div class="contact__links" aria-label="Contact links">
+        <a href="/contact/">hello@craftandbeing.com</a>
+        <a href="https://instagram.com/craftandbeing">@craftandbeing on Instagram</a>
+      </div>
+    </div>
+    <div class="foot__legal">
+      <div class="foot__links" aria-label="Legal links">
+        <a href="/privacy-policy/">Privacy Policy</a>
+        <a href="/terms-of-use/">Terms of Use</a>
+      </div>
+      <p class="foot__meta">website and imagery by Craft &amp; Being unless otherwise specified.</p>
+      <p class="foot__meta">Craft &amp; Being Studio - All Rights Reserved &copy; 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var nav = document.querySelector('[data-nav]');
+      var menu = document.querySelector('[data-menu]');
+      var toggle = document.querySelector('.menu-toggle');
+
+      function setMenu(open){
+        if(!nav || !menu || !toggle) return;
+        nav.classList.toggle('is-open', open);
+        menu.classList.toggle('is-open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      }
+
+      if(toggle){
+        toggle.addEventListener('click', function(event){
+          event.stopPropagation();
+          setMenu(toggle.getAttribute('aria-expanded') !== 'true');
+        });
+      }
+
+      if(menu){
+        menu.addEventListener('click', function(event){
+          if(event.target.closest && event.target.closest('a')) setMenu(false);
+        });
+      }
+
+      document.addEventListener('keydown', function(event){
+        if(event.key === 'Escape') setMenu(false);
+      });
+
+      var items = document.querySelectorAll('[data-footer-reveal]');
+      if(!('IntersectionObserver' in window)){
+        items.forEach(function(el){ el.classList.add('is-in'); });
+        return;
+      }
+
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.classList.add('is-in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+      items.forEach(function(el){ io.observe(el); });
+    })();
+  </script>
 </body>
 </html>
