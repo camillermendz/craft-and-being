@@ -71,7 +71,8 @@
   .button:hover{background:#7a764f;color:var(--paper);border-color:#7a764f}
   .text-link:hover{font-style:italic}
   .text-link::after{content:"";display:block;width:3.2rem;height:1.5px;background:#201818;margin-left:.8rem}
-  .hero{min-height:calc(100svh - var(--navh));display:grid;align-items:end;position:relative;isolation:isolate;padding:clamp(4.5rem,9vw,8rem) var(--pad);background:#201818 url('/assets/gatherings-garden-table.png') center/cover;color:var(--paper)}
+  .hero{min-height:calc(100svh - var(--navh));display:grid;align-items:end;position:relative;isolation:isolate;overflow:hidden;padding:clamp(4.5rem,9vw,8rem) var(--pad);background:#201818 url('/assets/gatherings-heading-poster.jpg') center/cover;color:var(--paper)}
+  .hero__video{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;filter:saturate(.94) contrast(1.02)}
   .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(32,24,24,.84),rgba(32,24,24,.44))}
   .hero__inner{width:min(100%,1180px);margin-inline:auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(16rem,.42fr);gap:clamp(2rem,6vw,6rem);align-items:end}
   .hero .eyebrow,.hero__side{color:rgba(244,243,237,.76)}
@@ -171,6 +172,9 @@
     .hero{min-height:calc(92svh - var(--navh));background-position:center}
     .feature__media{aspect-ratio:4/3}
   }
+  @media (prefers-reduced-motion:reduce){
+    .hero__video{display:none}
+  }
 </style>
 </head>
 <body>
@@ -196,6 +200,9 @@
 
 <main>
   <section class="hero" aria-label="Gatherings introduction">
+    <video class="hero__video" autoplay muted loop playsinline preload="metadata" poster="/assets/gatherings-heading-poster.jpg" aria-hidden="true">
+      <source src="/assets/gatherings-heading-720.mp4" type="video/mp4">
+    </video>
     <div class="hero__inner">
       <div>
         <h1>Gatherings</h1>
