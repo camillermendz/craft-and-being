@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Every Sacred Sunday × Craft &amp; Being | Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1D3444;
+    --ink:#282C2E;
+    --cream:#FCFBF9;
+    --paper:#F8F3EA;
+    --sand:#F0E5D3;
+    --gold:#AB8C52;
+    --olive:#685A3F;
+    --wine:#7F3B43;
+    --line:rgba(104,90,63,.24);
+    --body:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --sans:"Sofia Pro","DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --serif:"Calluna","Cormorant Garamond",Georgia,serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--cream);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.72;font-weight:400;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:var(--wine)}
+
+  header{position:sticky;top:0;z-index:10;background:rgba(252,251,249,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{max-width:1160px;margin:0 auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between}
+  .nav .mark{font-family:var(--sans);font-size:.74rem;font-weight:500;letter-spacing:.18em;line-height:1.35;text-transform:uppercase;color:var(--navy);text-decoration:none}
+  .nav ul{display:flex;gap:30px;list-style:none}
+  .nav ul a{font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--olive)}
+  .nav ul a:hover{color:var(--wine)}
+
+  .wrap{max-width:780px;margin:0 auto;padding:0 24px}
+  .wide-wrap{width:min(100% - 48px,1180px);margin:0 auto}
+  section{padding:clamp(72px,9vw,112px) 0}
+
+  .hero{position:relative;isolation:isolate;min-height:calc(100svh - 67px);display:grid;align-items:end;overflow:hidden;background:var(--navy);color:var(--cream);padding:clamp(100px,13vw,168px) 24px clamp(56px,8vw,98px)}
+  .hero::before{content:"";position:absolute;inset:0;z-index:1;background:
+    linear-gradient(90deg,rgba(29,52,68,.86),rgba(29,52,68,.43) 47%,rgba(29,52,68,.16)),
+    linear-gradient(0deg,rgba(29,52,68,.72),rgba(29,52,68,.12) 55%)}
+  .hero-image{position:absolute;inset:0;z-index:0}
+  .hero-image img{width:100%;height:100%;object-fit:cover;object-position:center 46%}
+  .hero .wrap{position:relative;z-index:2;width:min(100%,1080px);max-width:1080px;text-align:left}
+  .eyebrow{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+  h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.35rem,5.5vw,3.5rem);line-height:1.08;color:var(--navy);text-transform:uppercase}
+  .hero h1{max-width:780px;color:var(--cream);font-size:clamp(2.14rem,5.25vw,4.35rem);line-height:1.02;font-weight:500}
+  .subtitle{font-family:var(--serif);font-style:italic;font-size:1.45rem;line-height:1.2;color:var(--olive);margin-top:14px}
+  .hero .subtitle{color:var(--sand);font-size:clamp(1.2rem,2.1vw,1.75rem)}
+  .hero p.intro{max-width:620px;margin:28px 0 36px;color:rgba(252,251,249,.9)}
+  .btn{display:inline-block;background:var(--navy);color:var(--cream);text-decoration:none;font-family:var(--sans);font-size:.73rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;padding:15px 32px;border:1px solid var(--navy);transition:background .2s ease,color .2s ease,border-color .2s ease}
+  .btn:hover{background:var(--cream);color:var(--navy)}
+  .btn.wine{background:var(--wine);border-color:var(--wine)}
+  .btn.wine:hover{background:var(--cream);color:var(--wine)}
+
+  h2,h4{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,4vw,3rem);line-height:1.02;color:var(--navy);margin-bottom:10px;text-transform:uppercase}
+  h3{font-family:var(--serif);font-weight:600;font-size:clamp(1.42rem,2.3vw,1.9rem);line-height:1.1;color:var(--navy);margin:44px 0 12px}
+  .rule{display:none}
+  p + p{margin-top:1em}
+  em{font-family:var(--serif);font-size:1.05em}
+
+  .pov{background:var(--navy);color:var(--cream);text-align:center;padding:clamp(82px,10vw,124px) 24px}
+  .pov blockquote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(1.65rem,3.8vw,2.5rem);line-height:1.32;max-width:760px;margin:0 auto}
+  .pov .attr{font-family:var(--sans);margin-top:24px;font-size:.72rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+
+  ul.deliv{list-style:none;margin-top:14px}
+  ul.deliv li{padding:11px 0 11px 26px;position:relative;border-bottom:1px solid var(--line)}
+  ul.deliv li::before{content:"";position:absolute;left:2px;top:22px;width:6px;height:6px;background:var(--gold);border-radius:50%}
+
+  .band{background:var(--sand)}
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:36px}
+  @media(max-width:640px){.cards{grid-template-columns:1fr}}
+  .card{background:var(--cream);border:1px solid var(--line);padding:34px 30px}
+  .card .who{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--wine)}
+  .card h3{margin:8px 0 4px}
+  .price{font-family:var(--serif);font-size:2.1rem;color:var(--navy);margin:10px 0 4px}
+  .price small{font-family:var(--sans);font-size:.85rem;color:var(--olive);letter-spacing:.04em}
+  .total{background:var(--navy);color:var(--cream);text-align:center;padding:44px 32px;margin-top:28px}
+  .total h3{color:var(--cream);margin:0 0 6px}
+  .total .price{color:var(--sand);font-size:2.5rem}
+  .total p{color:rgba(252,251,249,.85);max-width:520px;margin:10px auto 0;font-size:.95rem}
+  .investment-section{background:var(--paper);padding:clamp(82px,11vw,140px) 24px}
+  .investment-heading{display:grid;gap:18px;justify-items:center;margin:0 auto clamp(38px,6vw,72px);max-width:780px;text-align:center}
+  .investment-heading p:last-child{max-width:700px;color:var(--olive)}
+  .investment-card{background:var(--cream);display:grid;gap:clamp(30px,6vw,86px);grid-template-columns:minmax(220px,.46fr) minmax(0,1fr);max-width:1120px;margin:0 auto;padding:clamp(40px,6vw,78px)}
+  .investment-card__meta{align-self:start}
+  .investment-card__meta h3{font-size:clamp(2.35rem,4.2vw,4.15rem);line-height:.96;margin:0;color:var(--navy);font-weight:500}
+  .investment-card__meta .price{font-family:var(--serif);font-size:clamp(3.2rem,6.4vw,6.2rem);font-weight:500;line-height:.86;margin:40px 0 8px;color:var(--navy)}
+  .investment-card__meta .price small{display:block;margin-top:14px;font-family:var(--sans);font-size:.86rem;font-weight:400;letter-spacing:.04em;line-height:1.45;color:var(--olive)}
+  .investment-card__meta .price-note{color:var(--olive);font-size:.94rem;margin-top:18px}
+  .investment-card__copy{align-self:end}
+  .investment-card__copy .deliv{margin-top:0}
+  .investment-card__copy .btn{margin-top:32px}
+  .package-footnote{max-width:780px;margin:clamp(32px,4vw,54px) auto 0;text-align:center;color:var(--olive)}
+
+  .next-steps__schedule{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(40px,7vw,96px);margin:clamp(42px,6vw,68px) 0;text-align:left}
+  .next-steps__item .date{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+  .next-steps__item h3{margin:14px 0 18px}
+  .next-steps__item p:last-child{color:var(--olive);font-size:1rem;line-height:1.8}
+
+  .image-strip{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;margin:58px auto}
+  .image-strip img{width:100%;height:clamp(330px,42vw,560px);object-fit:cover}
+  .image-strip img:first-child{object-position:center 52%}
+  .image-strip img:last-child{object-position:center 58%}
+  .wide-image{width:100%;margin:0}
+  .wide-image img{width:100%;height:clamp(360px,52vw,680px);object-fit:cover;object-position:center 48%}
+  #scope .wrap > p{color:var(--olive)}
+  @media(max-width:640px){
+    .hero{min-height:760px;padding-top:116px}
+    .hero .wrap{text-align:left}
+    .hero h1{font-size:2.21rem;max-width:12ch}
+    .nav ul{display:none}
+    .image-strip{grid-template-columns:1fr;margin:40px auto}
+    .image-strip img{height:280px}
+    .wide-image img{height:360px}
+    .investment-card{grid-template-columns:1fr}
+    .next-steps__schedule{grid-template-columns:1fr;gap:36px}
+    .next-steps__item + .next-steps__item{padding-top:36px;border-top:1px solid var(--line)}
+  }
+
+  .closing{text-align:center}
+  .closing .sign{font-family:var(--serif);font-style:italic;font-size:clamp(1.55rem,3vw,2.15rem);line-height:1.28;color:var(--navy);margin:30px 0 36px}
+
+  footer{border-top:1px solid var(--line);padding:38px 24px;text-align:center;font-size:.78rem;letter-spacing:.02em;color:var(--olive)}
+  footer a{color:var(--olive);text-decoration:none;margin:0 10px}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a class="mark" href="#top">Every Sacred Sunday <span style="color:var(--gold)">×</span> Craft &amp; Being</a>
+    <ul>
+      <li><a href="#scope">The Scope</a></li>
+      <li><a href="#investment">Investment</a></li>
+      <li><a href="#next-steps">Next Steps</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-image" aria-hidden="true">
+    <img src="https://everysacredsunday.com/cdn/shop/files/ESS-WS-2026-01-07-New-Hero-b.jpg?v=1767814669&width=1728" alt="">
+  </div>
+  <div class="wrap">
+    <p class="eyebrow">Every Sacred Sunday Collaboration</p>
+    <h1>Content Marketing &amp; Social Media Support Proposal</h1>
+    <p class="intro">A collaborative studio engagement supporting Every Sacred Sunday with ongoing content marketing and social media management, beginning with onboarding in late August and continuing through the fall season and beyond.</p>
+    <a class="btn" href="#scope">View the scope</a>
+  </div>
+</section>
+
+<section class="pov">
+  <blockquote>An invitation to collaborate in the sacred work of drawing souls closer to Heaven through beauty, formation, and thoughtful creative stewardship.</blockquote>
+  <p class="attr">Our Invitation</p>
+</section>
+
+<figure class="wide-image" aria-label="Every Sacred Sunday journal detail">
+  <img src="https://everysacredsunday.com/cdn/shop/files/711A9435-Enhanced-NR.jpg?v=1758739550&width=1728" alt="Every Sacred Sunday journal in use">
+</figure>
+
+<section id="scope">
+  <div class="wrap">
+    <h2>The Scope of Support</h2>
+
+    <h3>Full-Service Social Media Management</h3>
+    <p>All the regular rhythms of managing your channels: content ideation and creative direction, filming and curating footage, caption writing, graphic design, scheduling and publishing, and reporting on reach and engagement. Instagram and TikTok are the focus, with Facebook linked to Instagram and Pinterest kept as a passive auto-sync.</p>
+
+    <h3>Email-Led Content Planning</h3>
+    <p>The Sunday Series and liturgical living emails serve as the spine of the calendar. Each week's subject matter maps into Instagram and TikTok content: reels, voiceovers, and lifestyle footage drawn from the existing Dropbox and phone library, including the Kansas City printer trip footage.</p>
+
+    <h3>Writers, Voices &amp; Influencers</h3>
+    <p>Sunday Series writers are invited into content at their own comfort level, whether voiceover, full reel, or photos only, with no one required to show their face. The influencer program starts small and intentional: warm existing relationships first, micro and nano creators scouted on TikTok, a standard offer and rate sheet, and close tracking of each post's reach and engagement.</p>
+
+    <h3>Seasonal Launch Support</h3>
+    <p>Launch moments are folded into the ongoing rhythm as they come. This fall, that includes the 10th edition Mass Journal arriving October 7th alongside the new totes, pouch, and blank journal, with messaging that sets expectations for the edition's refinements and carries this year's red-and-green trees theme through First Look on November 9th.</p>
+
+    <h3>Workflow &amp; Rhythm</h3>
+    <p>A Notion dashboard houses link drops, content approval, platform views, reuse mapping, and influencer coordination, replacing the current spreadsheet setup. The engagement begins with one strategy session, followed by a set weekly review-and-approval day and regular check-ins to assess performance.</p>
+  </div>
+</section>
+
+<div class="wide-wrap image-strip" aria-label="Every Sacred Sunday lifestyle imagery">
+  <img src="https://everysacredsunday.com/cdn/shop/files/DSC03248_1.jpg?v=1759941460&width=1200" alt="Every Sacred Sunday lifestyle">
+  <img src="https://everysacredsunday.com/cdn/shop/files/ESS-WS-2026-01-07-New-Hero-b.jpg?v=1767814669&width=1200" alt="Every Sacred Sunday Mass Journal">
+</div>
+
+<section class="investment-section" id="investment">
+  <div class="investment-heading">
+    <p class="eyebrow">The Investment</p>
+    <p>Camille and Kate begin with an audit, inventory of existing drive and content, and shaping a content cadence. Together with Kassie and Christie, we clarify the vision for ESS content marketing; from there, Camille and Kate carry out the strategy as one coordinated creative team. Pricing is a flat monthly rate for the duration of the engagement to keep the partnership clear and easy to plan around.</p>
+  </div>
+
+  <article class="investment-card">
+    <div class="investment-card__meta">
+      <h3>Full-Service Social Media Management</h3>
+      <p class="price">$2,900<small>per month</small></p>
+      <p class="price-note">Launch-heavy months or expanded deliverables may scale to $3,300, confirmed together before the month begins.</p>
+    </div>
+    <div class="investment-card__copy">
+      <ul class="deliv">
+        <li>Content strategy, ideation &amp; creative direction across Instagram and TikTok</li>
+        <li>Email-led content calendar, scheduling &amp; publishing</li>
+        <li>Filming, curating &amp; repurposing footage from the existing library</li>
+        <li>Reels, voiceovers, graphic design &amp; caption writing</li>
+        <li>Gradual refresh of existing Canva templates within the updated brand kit</li>
+        <li>Sunday Series writer activation &amp; comfort-level polling</li>
+        <li>Influencer scouting, offer sheet &amp; performance tracking</li>
+        <li>Pinterest and Facebook repurposing, scheduling &amp; platform-specific adjustments</li>
+        <li>Notion dashboard, weekly review/approval rhythm &amp; reporting</li>
+      </ul>
+      <a class="btn wine" href="mailto:hello@craftandbeing.com?subject=Every%20Sacred%20Sunday%20%C3%97%20Craft%20%26%20Being%20%E2%80%94%20Collaboration">Confirm the collaboration</a>
+    </div>
+  </article>
+
+  <p class="package-footnote">Months carrying heavier lifts, such as a launch window, may scale to the higher end of the range with expanded deliverables, always confirmed with your team in advance.</p>
+
+  <div class="wrap">
+    <h3 style="margin-top:52px">Room to Grow</h3>
+    <p>If Every Sacred Sunday later chooses to add work beyond this scope, such as complex project management, additional graphics and print projects, flyers, or web pages, these are billed at an hourly project rate. Because we will already know the brand well, there is no additional traditional project fee and no separate contractor engagement to set up.</p>
+  </div>
+
+</section>
+
+<section class="closing band" id="next-steps" style="background:var(--cream);border-top:1px solid var(--sand)">
+  <div class="wrap">
+    <h2>Next Steps</h2>
+    <p>Once confirmed, we can schedule the kickoff strategy session and begin working on the first batch of content. Documents to gather: login credentials and access to software, any onboarding docs, brand kit, Canva templates, and warm influencer names.</p>
+    <div class="next-steps__schedule">
+      <article class="next-steps__item">
+        <p class="date">Week of August 26</p>
+        <h3>Onboarding &amp; Kickoff</h3>
+        <p>We begin with the master onboarding doc, the updated brand kit, existing Canva templates, and one strategy session to set the calendar. The Notion dashboard goes live in week one.</p>
+      </article>
+      <article class="next-steps__item">
+        <p class="date">September</p>
+        <h3>The Ramp</h3>
+        <p>Email-mapped content begins publishing across Instagram and TikTok. Writers are polled on comfort levels and the first writer features enter the calendar. Warm influencer outreach begins from existing relationships while new creators are scouted on TikTok.</p>
+      </article>
+    </div>
+    <p class="sign">We would be honored to support the beautiful work already happening at Every Sacred Sunday.</p>
+    <a class="btn" href="mailto:hello@craftandbeing.com?subject=Every%20Sacred%20Sunday%20%C3%97%20Craft%20%26%20Being%20%E2%80%94%20Collaboration">Confirm the engagement</a>
+  </div>
+</section>
+
+<footer>
+  <p>Every Sacred Sunday × Craft &amp; Being</p>
+  <p style="margin-top:8px">
+    <a href="/privacy-policy/">Privacy Policy</a>·
+    <a href="/terms-of-use/">Terms of Use</a>·
+    <a href="#top">Back to top</a>
+  </p>
+</footer>
+
+</body>
+</html>
