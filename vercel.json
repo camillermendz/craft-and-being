@@ -10,5 +10,11 @@
     { "source": "/privacy-policy.html", "destination": "/privacy-policy/", "permanent": true },
     { "source": "/terms-of-use.html", "destination": "/terms-of-use/", "permanent": true },
     { "source": "/index.html", "destination": "/", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/links", "destination": "https://craftandbeing-links.vercel.app/links" },
+    { "source": "/links/", "destination": "https://craftandbeing-links.vercel.app/links" },
+    { "source": "/links/:path*", "destination": "https://craftandbeing-links.vercel.app/links/:path*" },
+    { "source": "/_next/:path*", "destination": "https://craftandbeing-links.vercel.app/_next/:path*" }
   ]
 }
