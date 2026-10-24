@@ -12,6 +12,7 @@
     { "source": "/index.html", "destination": "/", "permanent": true }
   ],
   "rewrites": [
+    { "source": "/join-TCM", "destination": "/join-TCM/index.html" },
     { "source": "/links", "destination": "https://craftandbeing-links.vercel.app/links" },
     { "source": "/links/", "destination": "https://craftandbeing-links.vercel.app/links" },
     { "source": "/links/:path*", "destination": "https://craftandbeing-links.vercel.app/links/:path*" },
